@@ -1,0 +1,37 @@
+ROTAS DE TESTE — FINAIS CONDICIONAIS
+
+Cada final possui uma rota específica. As opções de final permanecem bloqueadas até que a sequência exigida e as evidências correspondentes tenham sido encontradas.
+
+FINAL 1 — A VERDADE
+INÍCIO > ROSIVALDA > ACAO > CASA 80 > MARCAS > PAREDE MARCADA > CASA 20 > GAVETA ESCONDIDA > DIÁRIO ANTIGO > CENTRO > EX-MORADOR > DESCOBERTA DO EQUIPAMENTO > FIGURA 80 > IMPEDIR O ACIONAMENTO.
+
+FINAL 2 — CEM ANOS ATRÁS
+INÍCIO > ROSIVALDA > AÇÃO > CASA 50 > EXAMINAR OS OBJETOS > EXAMINAR A PEÇA > PROCURAR INFORMAÇÕES SOBRE A PEÇA > COMPARAR A PEÇA COM O DOCUMENTO > PROCURAR INFORMAÇÕES SOBRE O EQUIPAMENTO > SEGUIR O REGISTRO DA RETIRADA > CONSTRUÇÃO ANTIGA > EXAMINAR OS ESCOMBROS > EQUIPAMENTO > EXAMINAR O EQUIPAMENTO > FIGURA NAS SOMBRAS > PERGUNTAR O QUE O EQUIPAMENTO FAZ > O EQUIPAMENTO FOI ACIONADO > FINAL 2 (1926).
+
+VARIAÇÕES VÁLIDAS DA ROTA 2
+- Na Casa 50, também é possível começar por EXAMINAR OS DOCUMENTOS.
+- As escolhas paralelas da peça, dos documentos, da localização e da construção convergem para o encontro com Zebriúson.
+- Na rota do Final 2, TENTAR IMPEDIR aparece bloqueado; O EQUIPAMENTO FOI ACIONADO conduz ao FINAL 2.
+- Na rota do Final 1, apenas IMPEDIR O ACIONAMENTO é liberado; a opção do Final 2 permanece bloqueada.
+
+FINAL 3 — MORTE DO DETETIVE
+INÍCIO > ROSIVALDA > AÇÃO > CASA 54 > PEGADAS ou JANELA > seguir a pista correspondente até a CASA 1 > INTERIOR ou LADO DE FORA > ATAQUE DO PALHAÇO > TENTAR SOCORRER O DETETIVE > MORTE DO DETETIVE.
+
+CONTINUAÇÃO A DO FINAL 3
+Na cena MORTE DO DETETIVE, escolher CHAMAR FREDILSON E UBERLIUSON. O detetive sobrevivente e os dois amigos iniciam uma cópia independente da investigação da Casa 80. Depois de impedir o acionamento, o grupo descobre que Zebriúson era o palhaço e o questiona sobre o motivo do ataque. Essa cópia não desbloqueia nem altera o Final 1 original.
+
+CONTINUAÇÃO B DO FINAL 3
+Na cena MORTE DO DETETIVE, escolher CHAMAR GUSTAVO E AVENILDO. O detetive sobrevivente e os dois amigos iniciam uma cópia independente da investigação da Casa 48. Essa cópia não desbloqueia nem altera o Final 4 original.
+
+FINAL 4 — A VERDADE SOBRE ROSIVALDA
+INÍCIO > ROSIVALDA > AÇÃO > CASA 48 > qualquer investigação da fotografia > DISCOTECA > qualquer investigação dos objetos > BIBLIOTECA > JORNAIS ANTIGOS > COMPARAR A NOTÍCIA ou VERIFICAR A IDENTIDADE > CONCLUSÃO DA INVESTIGAÇÃO > CONTAR A VERDADE A ROSIVALDA COM TODAS AS PROVAS.
+
+TESTE DE BLOQUEIO DO FINAL 4
+Na BIBLIOTECA, escolher REGISTROS DE MORADORES ou LIVROS SOBRE O BAIRRO leva à CONCLUSÃO DA INVESTIGAÇÃO. Nesse caso, apenas NÃO HÁ PROVAS SUFICIENTES PARA CONTAR A VERDADE A ROSIVALDA fica disponível. Somente JORNAIS ANTIGOS libera CONTAR A VERDADE A ROSIVALDA COM TODAS AS PROVAS.
+
+TESTES NEGATIVOS
+- Começar pela Casa 50 e tentar Final 1: BLOQUEADO.
+- Começar pela Casa 80 e tentar Final 2: BLOQUEADO.
+- Começar pela Casa 54 e tentar Final 4 sem concluir a investigação da Discoteca: BLOQUEADO.
+- Começar pela Casa 48 e tentar Final 3 sem passar pela Casa 1 e pelo ataque: BLOQUEADO.
+- Chegar à cena decisiva sem completar a sequência obrigatória: opção de final BLOQUEADA.

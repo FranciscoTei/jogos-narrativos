@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Narrativas Digitais Interativas - Exposição de jogos narrativos interativos criados por estudantes.">
+  <title>NARRATIVAS DIGITAIS INTERATIVAS</title>
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. HEADER / NAVBAR (Transparente à direita, ícone maior, menor altura) -->
+  <header class="header">
+    <div class="header-container">
+      <div class="header-left">
+        <a href="#" class="logo">
+          <img src="assets/icon.png" alt="Logo Narrativas Digitais Interativas" class="logo-icon">
+          <span class="logo-text">NARRATIVAS DIGITAIS INTERATIVAS</span>
+        </a>
+
+        <nav class="nav">
+          <a href="#" class="nav-item active">Início</a>
+          <a href="javascript:void(0)" onclick="openAboutModal()" class="nav-item">Sobre</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Buscar jogos..." aria-label="Buscar jogos">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. HERO SECTION (Capa Nítida & Efeito Glow) -->
+  <section class="hero-section">
+    <div class="hero-bg-wrapper">
+      <img src="assets/capa.png" alt="Capa Narrativas Digitais Interativas" class="hero-bg-img">
+      <div class="hero-gradient-overlay"></div>
+    </div>
+    
+    <div class="hero-content-container">
+      <div class="hero-text-block">
+        <h1 class="hero-title">
+          Escolha uma história.
+          <span class="hero-highlight">Decida o final.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Explore mistérios, aventuras e narrativas interativas criadas por estudantes.
+        </p>
+        <a href="#jogos" class="btn-explorar">
+          EXPLORAR JOGOS <span class="arrow">&gt;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. FEATURED GAMES SECTION -->
+  <main class="section-games" id="jogos">
+    <div class="main-container">
+      <div class="section-top-bar">
+        <div class="section-heading-wrap">
+          <h2 class="section-title">Jogos em destaque</h2>
+          <span class="section-dash"></span>
+        </div>
+        <span class="section-caption">12 projetos · 6 jogos disponíveis para jogar</span>
+      </div>
+
+      <!-- Games Grid -->
+      <div class="games-grid" id="gamesGrid">
+        <!-- Rendered by script.js -->
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL: SOBRE -->
+  <div class="modal-backdrop" id="aboutModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">
+          <img src="assets/icon.png" alt="Icon" style="width: 32px; height: 32px;">
+          Sobre a Oficina de Jogos Narrativos
+        </h3>
+        <button class="modal-close" onclick="closeAllModals()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Bem-vindo à plataforma oficial da nossa <strong>Oficina de Jogos Narrativos</strong>! 
+          Aqui você encontrará histórias interativas e aventuras concebidas por estudantes da nossa escola.
+        </p>
+
+        <div class="modal-highlight">
+          <strong style="color: var(--gold-primary);">🧠 Criação Coletiva & Apoio de IA</strong>
+          <p style="margin-top: 0.4rem; margin-bottom: 0;">
+            Os alunos formaram grupos e, sob a orientação do professor e apoio da Inteligência Artificial, desenvolveram roteiros recursivos com múltiplos caminhos e finais alternativos.
+          </p>
+        </div>
+
+        <p>
+          📅 Não perca a nossa grande exposição presencial no <strong>Dia 09 de Setembro</strong>!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

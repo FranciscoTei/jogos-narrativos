@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+<rect width="900" height="650" fill="#12181b"/><circle cx="670" cy="180" r="210" fill="#34454b" opacity=".4"/>
+<path d="M210 650V440Q230 280 450 280T690 440v210" fill="#263438" stroke="#6d7b7a" stroke-width="5"/>
+<ellipse cx="450" cy="245" rx="125" ry="145" fill="#9a7258"/><path d="M330 230Q340 70 465 95Q575 105 585 230Q540 150 450 150Q370 155 330 230Z" fill="#2d2927"/>
+<circle cx="405" cy="245" r="8" fill="#151719"/><circle cx="495" cy="245" r="8" fill="#151719"/>
+<path d="M410 315Q450 340 490 315" fill="none" stroke="#3a2523" stroke-width="5"/>
+<path d="M355 390Q450 340 545 390" fill="#4d6a62"/><text x="70" y="100" fill="#d1b57c" font-family="Georgia" font-size="42">ROSIVALDA</text>
+</svg>

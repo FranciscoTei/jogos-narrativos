@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+ <linearGradient id="sky" y2="1"><stop stop-color="#121c21"/><stop offset=".58" stop-color="#263137"/><stop offset="1" stop-color="#080b0d"/></linearGradient>
+ <radialGradient id="moon"><stop stop-color="#d5d0b9" stop-opacity=".32"/><stop offset="1" stop-color="#d5d0b9" stop-opacity="0"/></radialGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="10"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<circle cx="1250" cy="180" r="210" fill="url(#moon)"/><circle cx="1250" cy="180" r="75" fill="#bdb9a7" opacity=".13"/>
+<path d="M0 650L180 500l160 80 190-170 200 160 190-210 220 190 180-130 280 180v300H0Z" fill="#080b0d"/>
+<g fill="#12191c" stroke="#4d5a5e" stroke-width="4">
+<path d="M90 690V470l135-110 135 110v220Z"/><path d="M390 690V410l175-145 175 145v280Z"/>
+<path d="M790 690V455l145-115 145 115v235Z"/><path d="M1130 690V430l165-125 165 125v260Z"/>
+</g>
+<g fill="#b08b56" opacity=".55"><rect x="150" y="520" width="48" height="76"/><rect x="260" y="520" width="48" height="76"/><rect x="455" y="465" width="52" height="82"/><rect x="620" y="465" width="52" height="82"/><rect x="850" y="510" width="52" height="78"/><rect x="965" y="510" width="52" height="78"/><rect x="1195" y="485" width="52" height="80"/><rect x="1330" y="485" width="52" height="80"/></g>
+<path d="M0 735 Q280 690 540 740T1040 730T1600 745" fill="none" stroke="#77807d" stroke-width="2" opacity=".22"/>
+<text x="90" y="130" fill="#d4bd8a" font-family="Georgia" font-size="34" letter-spacing="9">ARQUIVO DE INVESTIGAÇÃO</text>
+</svg>

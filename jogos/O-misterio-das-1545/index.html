@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d3035">
+  <title>O Mistério das 15:45</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#historia">Ir para a investigação</a>
+
+  <div class="museum-shell">
+    <header class="topbar">
+      <a class="museum-brand" href="../../index.html" aria-label="Voltar para Jogos Narrativos">
+        <span class="museum-mark" aria-hidden="true">
+          <i></i><i></i><i></i>
+        </span>
+        <span>
+          <strong>Museu Histórico Municipal</strong>
+          <small>Memória que aproxima gerações</small>
+        </span>
+      </a>
+
+      <nav class="museum-nav" aria-label="Navegação do caso">
+        <a href="#historia">O caso</a>
+        <a href="#linha-do-tempo">Linha do tempo</a>
+        <button type="button" data-open-catalog aria-controls="evidenceDrawer" aria-expanded="false">Evidências</button>
+      </nav>
+
+      <div class="case-brand">
+        <span>O Mistério das</span>
+        <strong>15:45</strong>
+      </div>
+    </header>
+
+    <section class="case-progress" aria-label="Progresso da investigação">
+      <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div id="progressBar"></div>
+      </div>
+      <span id="progressText">0% esclarecido</span>
+    </section>
+
+    <main id="historia">
+      <article class="narrative-card" aria-live="polite">
+        <div class="case-stage">
+          <figure class="scene-art" id="sceneArt" data-tone="display">
+            <img src="assets/images/museu-1545.png" alt="Galeria de um museu com uma vitrine vazia e um relógio marcando 15:45">
+            <div class="scene-shade" aria-hidden="true"></div>
+            <div class="gallery-sign" aria-hidden="true">
+              <span>Galeria</span>
+              <strong>Aurora</strong>
+              <i></i>
+              <small>Arte · História · Memória</small>
+            </div>
+            <div class="exhibit-label" aria-hidden="true">
+              <span id="artifactStatus">Objeto ausente</span>
+              <strong>Medalhão de Aurora</strong>
+              <small>Acervo municipal · CAT. 1545</small>
+            </div>
+            <div class="scene-time" aria-hidden="true">
+              <small>Hora do desaparecimento</small>
+              <strong>15:45</strong>
+            </div>
+          </figure>
+
+          <section class="story-sheet">
+            <div class="story-kicker">
+              <span>Jogo educacional · 6º ano</span>
+              <i></i>
+              <span id="sceneChapter">Prólogo</span>
+            </div>
+
+            <div class="scene-meta">
+              <span id="sceneMarker" aria-hidden="true">◇</span>
+              <span id="sceneLocation">Galeria Aurora</span>
+            </div>
+
+            <h1 id="sceneTitle">Quarenta e cinco minutos</h1>
+            <div class="scene-text" id="sceneText"></div>
+
+            <div class="choices-heading">
+              <strong>O que você faz agora?</strong>
+              <span>Escolha com base nas provas</span>
+            </div>
+            <div class="choices" id="choices"></div>
+            <div class="feedback" id="feedback" aria-live="polite"></div>
+          </section>
+        </div>
+
+        <section class="timeline" id="linha-do-tempo" aria-label="Linha do tempo do desaparecimento">
+          <div class="timeline-heading">
+            <span>Linha do tempo</span>
+            <small>Os últimos minutos na Galeria Aurora</small>
+          </div>
+          <ol>
+            <li><span></span><strong>15:40</strong><small>Última conferência</small></li>
+            <li><span></span><strong>15:42</strong><small>Chave retirada</small></li>
+            <li><span></span><strong>15:44</strong><small>Caixa no corredor</small></li>
+            <li class="is-focus"><span></span><strong>15:45</strong><small>Vitrine aberta</small></li>
+            <li><span></span><strong>15:46</strong><small>Alarme registrado</small></li>
+            <li><span></span><strong>15:51</strong><small>Acesso ao depósito</small></li>
+          </ol>
+          <p>Mesmo lugar.<br>Novas perguntas.</p>
+        </section>
+
+        <section class="catalog-preview" aria-label="Resumo do catálogo de evidências">
+          <button class="catalog-button" type="button" data-open-catalog aria-controls="evidenceDrawer" aria-expanded="false">
+            <span class="folder-icon" aria-hidden="true"></span>
+            <span>
+              <strong>Catálogo de evidências</strong>
+              <small>Abrir arquivo completo</small>
+            </span>
+            <i aria-hidden="true">↗</i>
+          </button>
+
+          <div class="catalog-counter">
+            <strong id="miniEvidenceCount">0 de 12 vestígios</strong>
+            <span id="objectiveText">Preserve a cena antes de ouvir versões.</span>
+          </div>
+
+          <div class="evidence-preview" id="evidencePreview" aria-label="Evidências mais recentes">
+            <span class="empty-evidence">As primeiras provas aparecerão aqui.</span>
+          </div>
+
+          <blockquote>“Um detalhe chama atenção.<br>Uma sequência demonstra.”</blockquote>
+        </section>
+      </article>
+    </main>
+
+    <footer class="museum-footer">
+      <span>CAT. 1545</span>
+      <div>
+        <strong>O Mistério das 15:45</strong>
+        <p>Uma investigação sobre tempo, memória e provas independentes.</p>
+      </div>
+      <span>Jogo narrativo estudantil</span>
+    </footer>
+  </div>
+
+  <div class="drawer-backdrop" data-close-catalog aria-hidden="true"></div>
+  <aside class="evidence-drawer" id="evidenceDrawer" aria-hidden="true" aria-label="Catálogo completo da investigação">
+    <header>
+      <div>
+        <span>Arquivo CAT. 1545</span>
+        <h2>Catálogo de evidências</h2>
+      </div>
+      <button class="drawer-close" type="button" data-close-catalog aria-label="Fechar catálogo">×</button>
+    </header>
+
+    <section class="drawer-objective">
+      <span>Próximo objetivo</span>
+      <p id="drawerObjective">Preserve a cena antes de ouvir versões.</p>
+    </section>
+
+    <section class="evidence-section">
+      <div class="drawer-section-title">
+        <h3>Vestígios confirmados</h3>
+        <span id="evidenceCount">0/12</span>
+      </div>
+      <ul class="evidence-list" id="evidenceList"></ul>
+    </section>
+
+    <section class="people-section">
+      <div class="drawer-section-title">
+        <h3>Pessoas encontradas</h3>
+        <span id="peopleCount">0</span>
+      </div>
+      <ul class="people-list" id="peopleList"></ul>
+    </section>
+
+    <button class="drawer-restart" id="restartButton" type="button">
+      <span aria-hidden="true">↻</span>
+      Reiniciar investigação
+    </button>
+  </aside>
+
+  <script src="game.js"></script>
+</body>
+</html>

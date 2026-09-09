@@ -1,0 +1,18 @@
+JOGO NARRATIVO RECURSIVO - O MISTÉRIO DA SALA FECHADA
+
+Abra index.html no navegador.
+
+Estrutura:
+- index.html = estrutura da página
+- css/style.css = identidade visual e responsividade
+- js/game.js = roteiro, gatilhos e motor narrativo
+- assets/cenarios = imagens dos cenários e arte de abertura
+
+O jogo possui:
+- escolhas narrativas
+- investigação por pistas
+- caminhos alternativos
+- finais diferentes
+- imagens vinculadas às cenas
+- pessoas reveladas somente quando encontradas
+- cenários que mudam quando revisitados com novas evidências

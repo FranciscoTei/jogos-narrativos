@@ -1,0 +1,19 @@
+RELATÓRIO DE AUDITORIA — FINAIS CONDICIONAIS
+
+A lógica de finais foi protegida no app.js sem alteração dos textos narrativos do story.js.
+
+Cada final possui:
+1. rota inicial obrigatória;
+2. sequência ordenada de cenas obrigatórias;
+3. evidências/cenas de pista obrigatórias;
+4. cena de entrada decisiva obrigatória.
+
+Uma tentativa de acessar diretamente um final sem cumprir os requisitos é bloqueada. A interface informa o motivo do bloqueio e não altera a cena atual.
+
+Rotas validadas:
+Final 1: Casa 80 > Casa 20 > Centro > descoberta do equipamento.
+Final 2: Casa 50 > objetos ou documentos > informações sobre o equipamento > construção antiga > equipamento > Zebriúson > decisão final > 1926.
+Final 3: Casa 54 > fotografia > Ponto de convergência 2 > Casa 1 > ataque.
+Final 4: Casa 48 > pesquisa de 1976 > Ponto de convergência 2 > Discoteca > memória de Rosivalda.
+
+Também foram executados testes positivos para os quatro finais e testes negativos cruzando as rotas 1/2 e 3/4.

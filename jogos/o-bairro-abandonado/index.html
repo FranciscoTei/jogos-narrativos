@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>O Bairro Abandonado</title><link rel="stylesheet" href="css/style.css">
+</head>
+<body>\n<audio id="ambientAudio" preload="auto" loop aria-label="Música de suspense">\n  <source src="assets/audio/suspense.wav" type="audio/wav">\n</audio>\n
+
+<audio id="suspenseAudio" src="assets/audio/suspense.wav" loop preload="auto" aria-label="Som ambiente de suspense"></audio>
+<section id="coverScreen" class="cover-screen" aria-label="Capa inicial do jogo">
+  <div class="cover-art cover-new">
+    <img src="assets/img/capa-o-bairro-abandonado.png" alt="O Bairro Abandonado — capa da investigação">
+    <div class="cover-actions">
+      <button id="coverStart" type="button">▶ &nbsp; INICIAR INVESTIGAÇÃO</button>
+    </div>
+  </div>
+</section>
+
+<a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
+<header class="top" role="banner">
+ <div class="brand">
+  <div class="sigil" aria-hidden="true"><span>✦</span></div>
+  <div><div class="brand-title">O BAIRRO ABANDONADO</div><div class="brand-sub">NARRATIVA INTERATIVA · INVESTIGAÇÃO · RECURSIVIDADE</div></div>
+ </div>
+ <nav class="game-tools" aria-label="Controles do jogo">
+   <button id="startGame" class="tool primary" type="button" title="Começar ou reiniciar a investigação">▶ <span>COMEÇAR INVESTIGAÇÃO</span></button>
+   <button id="musicToggle" class="tool" type="button" aria-pressed="false" title="Iniciar ou parar música ambiente">♫ <span>MÚSICA: INICIAR</span></button>
+   <button id="narrate" class="tool" type="button" aria-pressed="false" title="Ler a cena atual em voz alta">◉ <span>NARRAÇÃO</span></button>
+   <button id="pauseNarration" class="tool" type="button" title="Pausar ou continuar a narração">Ⅱ <span>PAUSAR</span></button>
+   <button id="fontDown" class="tool compact" type="button" title="Diminuir tamanho do texto" aria-label="Diminuir tamanho do texto">A−</button>
+   <button id="fontUp" class="tool compact" type="button" title="Aumentar tamanho do texto" aria-label="Aumentar tamanho do texto">A+</button>
+   <button id="contrastToggle" class="tool compact" type="button" aria-pressed="false" title="Ativar alto contraste" aria-label="Ativar alto contraste">◐</button>
+   <button id="motionToggle" class="tool compact" type="button" aria-pressed="false" title="Reduzir animações" aria-label="Reduzir animações">▣</button>
+   <button id="reset" class="tool" type="button" title="Iniciar uma nova investigação">↻ <span>NOVA</span></button>
+ </nav>
+</header>
+
+<div class="app">
+<aside class="side">
+ <div class="kicker">Caso em andamento</div><div class="case">O Bairro Abandonado</div>
+ <div class="stats">PROGRESSO <span id="pct">8%</span></div><div class="bar"><i id="bar"></i></div>
+ <div class="rule"></div><div class="heading">Objetivos</div><div id="objectives"></div>
+ <div class="rule"></div><div class="heading">Pistas registradas</div><div id="clues"></div>
+ <div class="rule"></div><div class="heading">Percurso da investigação</div>
+ <div id="sidePath" class="side-path" aria-live="polite"></div>
+ <div class="rule"></div><div class="heading">Informações</div>
+ <div class="stats">CENAS VISITADAS: <span id="locations">1</span><br>VISITAS: <span id="visits">1</span><br>ESTADO: INVESTIGAÇÃO ATIVA</div>
+</aside>
+
+<main class="main" id="main-content" tabindex="-1">
+ <div class="scene">
+  <div id="accessStatus" class="sr-status" role="status" aria-live="polite"></div>
+  <div class="crumbs"><span id="crumb">INVESTIGAÇÃO / O BAIRRO ABANDONADO</span><span>ARQUIVO 01</span></div>
+  <section class="hero"><img id="image"><div class="hero-text"><div class="eyebrow">CENA DA INVESTIGAÇÃO</div><h1 id="title"></h1></div></section>
+  <section class="content">
+   <div id="speakerPortrait" class="speaker-portrait" hidden aria-hidden="true"><img src="assets/img/detetive1-retrato.png" alt=""></div>
+   <p class="narrative" id="text"></p>
+   <div class="choose">Escolha o próximo passo</div>
+   <div class="choices" id="choices"></div>
+   <div class="controls"><button class="control" id="back">← VOLTAR À CENA ANTERIOR</button><div class="smallnote">AS ROTAS PODEM SE CRUZAR<br>E RETORNAR À INVESTIGAÇÃO</div></div>
+  </section>
+  <footer class="footer">
+   <div class="footer-main">NARRATIVA INTERATIVA · RECURSIVIDADE · PROJETO ESCOLAR</div>
+   <div class="footer-sub">ATIVIDADE DESENVOLVIDA COM APOIO DE INTELIGÊNCIA ARTIFICIAL</div>
+   <div class="footer-sub"><strong>CRIADORES</strong> · Maria Helena · Helena Barreto · Amós Netos · Isadora</div>
+   <div class="footer-sub"><strong>ORIENTAÇÃO</strong> · Professor Geovane Galdino</div>
+   <div class="footer-note">EXPERIÊNCIA NARRATIVA DIGITAL</div>
+  </footer>
+ </div>
+</main>
+
+<aside class="character-side" id="characterSide" hidden aria-hidden="true">
+ <div class="character-side-title" id="characterSideTitle">PERSONAGEM</div>
+ <div class="character-cards" id="characterCards"></div>
+ <div class="character-side-label">EM CENA</div>
+</aside>
+</div>
+
+<div class="modal-bg" id="modal"><div class="modal"><button class="close" id="close">×</button><h2>Percurso da investigação</h2><div class="path" id="pathList"></div></div></div>
+<script src="js/story.js"></script><script src="js/app.js"></script>
+</body></html>

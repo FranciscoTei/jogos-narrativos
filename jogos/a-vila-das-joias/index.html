@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071c22">
+  <title>A Vila das Jóias — Jogo Investigativo Interativo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Áudio de Suspense (Requisito GEMINI.md) -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="assets/suspense.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Tela Inicial (Requisito Crítico de Áudio do GEMINI.md) -->
+  <div id="startOverlay" class="start-overlay">
+    <div class="start-card">
+      <div class="start-gem" aria-hidden="true"><span>◆</span></div>
+      <div class="start-badge">JOGO DE ESCOLHAS NARRATIVAS</div>
+      <h1 class="start-title">A Vila das Jóias</h1>
+      <p class="start-subtitle">O mistério da coleção desaparecida · 1995</p>
+      <div class="start-desc">
+        <p>A famosa coleção de pedras preciosas da vila foi roubada durante a madrugada. Porém, por trás do roubo esconde-se a lenda da Mina Perdida e de um mapa selado no interior de uma joia sintética.</p>
+        <p>Acompanhe Isaac e Belle para reunir pistas em Código Morse, desmascarar os suspeitos e descobrir o verdadeiro segredo dos fundadores.</p>
+      </div>
+      <button id="startGameBtn" class="btn-primary start-btn">▶ Iniciar Investigação</button>
+      <p class="start-note">🎧 Ligue o som para uma experiência imersiva de suspense.</p>
+    </div>
+  </div>
+
+  <!-- Aplicação Principal do Jogo -->
+  <div id="app" class="game-container">
+    <div id="sceneBg" class="scene-bg"></div>
+    <div class="scene-vignette"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <a class="back-link" href="../../index.html" aria-label="Voltar para Jogos Narrativos">←</a>
+        <span class="gem" aria-hidden="true">◆</span>
+        <div>
+          <h1>A Vila das Jóias</h1>
+          <p>Arquivo da vila · 1995</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button id="audioToggleBtn" class="icon-btn" title="Alternar Som">🔊 Som</button>
+        <button id="journalBtn" class="icon-btn">📓 Pistas <span id="clueCount">0</span></button>
+        <button id="mapBtn" class="icon-btn">🗺️ Mapa</button>
+        <button id="saveBtn" class="icon-btn">💾 Salvar</button>
+        <button id="restartBtn" class="icon-btn danger">↻ Reiniciar</button>
+      </div>
+    </header>
+
+    <div class="progress-wrap" aria-label="Progresso da investigação">
+      <div id="progressBar" class="progress-bar"></div>
+    </div>
+
+    <main class="game-layout">
+      <section class="story-card">
+        <div class="scene-img-wrap">
+          <img id="sceneImg" class="scene-img" src="" alt="Cenário">
+          <div class="scene-img-overlay"></div>
+          <div class="scene-img-meta">
+            <span id="scenePlace">Vila das Joias</span>
+            <span id="chapterLabel">Prólogo</span>
+          </div>
+        </div>
+        <div class="story-body">
+          <h2 id="sceneTitle">O Segredo da Vila</h2>
+          <div id="storyText" class="story-text"></div>
+          <div id="choices" class="choices"></div>
+          <div id="feedback" class="feedback" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <aside class="case-panel">
+        <h3>Notas do Caso</h3>
+        <div class="stat">
+          <span>Joia encontrada</span>
+          <strong id="gemStatus">—</strong>
+        </div>
+        <div class="stat">
+          <span>Pistas registradas</span>
+          <strong id="clueStatus">0</strong>
+        </div>
+        <div class="stat">
+          <span>Locais visitados</span>
+          <strong id="visitStatus">0/10</strong>
+        </div>
+        <p class="case-hint" id="caseHint">Belle prepara o caderno. A investigação começa agora.</p>
+      </aside>
+    </main>
+
+    <footer class="village-credits" aria-label="Créditos do jogo">
+      <div class="credits-stone" aria-hidden="true"><span>◆</span></div>
+      <div class="credits-work">
+        <span class="credits-kicker">Uma história criada por estudantes</span>
+        <h2>A Vila das Jóias</h2>
+        <p>Investigue cada rua. Volte com novas pistas. Descubra o que a vila esconde.</p>
+      </div>
+      <div class="credits-names">
+        <span class="credits-kicker">Autoria</span>
+        <ul aria-label="Autores">
+          <li>Lucas</li>
+          <li>Samuel</li>
+          <li>Israel</li>
+          <li>Talita</li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal para Pistas e Mapa -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button id="closeModal" class="close-btn" aria-label="Fechar">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

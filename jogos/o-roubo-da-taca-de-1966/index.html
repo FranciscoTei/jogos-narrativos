@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08131d">
+  <title>O Roubo da Taça de 1966</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="../../index.html" aria-label="Voltar para Jogos Narrativos">
+        <span class="brand-title">O Roubo da Taça de 1966</span>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-section">Investigação</span>
+      </a>
+
+      <nav class="era-nav" aria-label="Seções do caso">
+        <span class="is-active">História</span>
+        <button type="button" data-open-evidence>Arquivo 1966</button>
+        <a href="#creditos">Autoria</a>
+      </nav>
+
+      <div class="top-actions">
+        <span class="top-motto">Algumas taças valem<br>mais do que ouro</span>
+        <button class="evidence-toggle" type="button" data-open-evidence aria-controls="caseFile" aria-expanded="false">
+          <span class="evidence-toggle__icon" aria-hidden="true">▤</span>
+          <span>Pistas</span>
+          <strong id="contador-pistas">0/17</strong>
+        </button>
+        <button class="restart-button" type="button" onclick="reiniciar()" aria-label="Iniciar nova investigação">
+          <span aria-hidden="true">↻</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="progress" aria-label="Progresso do caso">
+      <div class="progress-copy">
+        <span>Arquivo 1966</span>
+        <strong id="progresso-texto">0% concluído</strong>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="Progresso da investigação" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div id="barra"></div>
+      </div>
+    </section>
+
+    <main class="game-layout">
+      <section class="story-panel" aria-live="polite">
+        <figure class="scene-art">
+          <div id="imagem" class="scene-image" role="img" aria-label="Salão da exposição com a vitrine central vazia"></div>
+          <div class="scene-art__shade"></div>
+
+          <div class="scene-branding" aria-hidden="true">
+            <span class="scene-branding__eyebrow">Londres · março de 1966</span>
+            <div class="scene-branding__title">
+              <span>O Roubo</span>
+              <span>da Taça de <em>1966</em></span>
+            </div>
+          </div>
+
+          <button class="floating-evidence" type="button" data-open-evidence aria-label="Abrir pistas coletadas">
+            <span aria-hidden="true">▤</span>
+            <small>Pistas</small>
+            <strong id="floating-count">00</strong>
+          </button>
+
+          <figcaption class="scene-title">
+            <div class="scene-meta">
+              <span id="indice-cena">Cena de abertura</span>
+              <span class="case-status" id="status-caso">Caso em aberto</span>
+            </div>
+            <h1 id="titulo"></h1>
+          </figcaption>
+        </figure>
+
+        <div class="scene-content">
+          <ol class="case-timeline" aria-label="Linha do tempo inicial do caso">
+            <li><strong>18h30</strong><span>Exposição fechada</span></li>
+            <li><strong>20h45</strong><span>Última conferência</span></li>
+            <li><strong>21h00</strong><span>Início do inventário</span></li>
+            <li><strong>21h20</strong><span>Vitrine vazia</span></li>
+            <li><strong>23h00</strong><span>Coleta no portão</span></li>
+          </ol>
+
+          <div class="story-column">
+            <div class="report-label">
+              <span>Relatório de campo</span>
+              <span class="report-line"></span>
+              <span>Londres · março de 1966</span>
+            </div>
+            <div class="scene-text" id="texto"></div>
+            <p class="story-signature">A verdade não deixa o prédio sem atravessar o tempo.</p>
+          </div>
+
+          <div class="decision-column">
+            <div class="choices-heading">
+              <span>Qual será seu próximo passo?</span>
+              <small>Escolha uma ação</small>
+            </div>
+            <div id="opcoes" class="choices"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="game-credits" id="creditos" aria-label="Créditos do jogo">
+      <div class="credits-year" aria-hidden="true">
+        <span>Arquivo</span>
+        <strong>1966</strong>
+      </div>
+      <div class="credits-title">
+        <span>Jogo narrativo criado por estudantes</span>
+        <h2>O Roubo da Taça de 1966</h2>
+        <p>Ficção investigativa inspirada livremente no desaparecimento da Taça Jules Rimet.</p>
+      </div>
+      <div class="credits-authors">
+        <span class="credits-label">Autoria</span>
+        <ul aria-label="Autores">
+          <li>Miguel</li>
+          <li>Luiz Gustavo</li>
+          <li>Raylan</li>
+          <li>Washington</li>
+        </ul>
+      </div>
+      <div class="credits-mentor">
+        <span class="credits-label">Orientador</span>
+        <strong>Francisco</strong>
+      </div>
+    </footer>
+  </div>
+
+  <button class="drawer-backdrop" type="button" data-close-evidence tabindex="-1" aria-label="Fechar arquivo de evidências"></button>
+  <aside class="case-file" id="caseFile" aria-hidden="true" aria-label="Arquivo de evidências">
+    <div class="drawer-header">
+      <div>
+        <span class="section-kicker">Arquivo confidencial</span>
+        <h2>Pistas coletadas</h2>
+      </div>
+      <button class="drawer-close" type="button" data-close-evidence aria-label="Fechar arquivo de evidências">×</button>
+    </div>
+
+    <div class="objective-card">
+      <span class="objective-card__label">Objetivo atual</span>
+      <p id="objetivo-atual">Feche os portões antes da coleta das 23h.</p>
+    </div>
+
+    <div class="drawer-scroll">
+      <ul class="evidence-list" id="pistas"></ul>
+
+      <div class="detective-note">
+        <span class="detective-note__icon" aria-hidden="true">↺</span>
+        <p><strong>Dica de investigação</strong> Volte a pessoas e lugares. Uma pista nova pode mudar uma conversa antiga.</p>
+      </div>
+
+      <div class="suspects">
+        <span class="section-kicker">Descobertos durante o caso</span>
+        <h2>Pessoas de interesse</h2>
+        <ul id="pessoas"></ul>
+      </div>
+
+      <details class="history-note">
+        <summary>O caso histórico real</summary>
+        <p>No caso verdadeiro, a taça foi roubada de uma exposição de selos em Westminster e encontrada sete dias depois por um cachorro chamado Pickles. O responsável nunca foi identificado. Este jogo cria uma solução inteiramente fictícia.</p>
+        <p class="history-sources">
+          <a href="https://nationalfootballmuseum.com/stories/object-of-the-week-dog-collar-belonging-to-pickles/" target="_blank" rel="noopener noreferrer">Museu Nacional do Futebol</a>
+          <a href="https://inside.fifa.com/es/news/pickles-y-la-copa-mundial-robada-2771240" target="_blank" rel="noopener noreferrer">FIFA</a>
+        </p>
+      </details>
+    </div>
+  </aside>
+
+  <script src="js/game.js"></script>
+</body>
+</html>

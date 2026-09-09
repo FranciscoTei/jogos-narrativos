@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>A Casa das Três - Jogo Narrativo</title>
+  <style>
+    body {
+      background: #0B101D;
+      color: #E2E8F0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+    .game-card {
+      background: #131C30;
+      border: 1px solid rgba(229, 184, 66, 0.4);
+      border-radius: 16px;
+      max-width: 650px;
+      width: 100%;
+      padding: 2.5rem;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+      text-align: center;
+    }
+    h1 {
+      color: #E5B842;
+      margin-top: 0;
+    }
+    p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+      color: #CBD5E1;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    button {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #E5B842;
+      color: #FFF;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    button:hover {
+      background: #E5B842;
+      color: #0B101D;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-card">
+    <h1>A Casa das Três</h1>
+    <p>Três amigas encontram uma casa abandonada ao cair da tarde. O sótão parece ranger sob o peso de um segredo esquecido...</p>
+    <div class="options">
+      <button onclick="alert('Você escolheu abrir a porta principal!')">Abrir a porta principal</button>
+      <button onclick="alert('Você escolheu contornar pelo jardim!')">Contornar pelo jardim</button>
+    </div>
+  </div>
+</body>
+</html>
