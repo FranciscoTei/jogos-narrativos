@@ -470,6 +470,31 @@ function renderSidebar() {
   });
 }
 
+const SCENE_IMAGES = {
+  incident: "assets/images/museu-1545.png",
+  display: "assets/images/museu-1545.png",
+  clock: "assets/images/museu-1545.png",
+  corridor: "assets/images/corredor_publico.png",
+  maria: "assets/images/corredor_publico.png",
+  camera: "assets/images/sala_dinossauros.png",
+  tay: "assets/images/sala_dinossauros.png",
+  staff: "assets/images/ala_tecnica.png",
+  garcia: "assets/images/ala_tecnica.png",
+  observeGarcia: "assets/images/ala_tecnica.png",
+  admin: "assets/images/administracao_deposito.png",
+  adminLedger: "assets/images/administracao_deposito.png",
+  deposit: "assets/images/administracao_deposito.png",
+  confrontGarcia: "assets/images/ala_tecnica.png",
+  conservation: "assets/images/laboratorio_conservacao.png",
+  clockGallery: "assets/images/galeria_relogios.png",
+  board: "assets/images/mesa_reconstrucao.png",
+  reconstruction: "assets/images/mesa_reconstrucao.png",
+  wrongMaria: "assets/images/mesa_reconstrucao.png",
+  wrongTay: "assets/images/mesa_reconstrucao.png",
+  solved: "assets/images/galeria_relogios.png",
+  perfect: "assets/images/galeria_relogios.png"
+};
+
 function render(id) {
   if (id === "__restart") {
     toggleCatalog(false);
@@ -489,6 +514,10 @@ function render(id) {
   $("sceneChapter").textContent = firstVisit ? current.chapter : `${current.chapter} · revisita`;
   $("sceneMarker").textContent = current.marker;
   $("sceneArt").dataset.tone = current.tone;
+  const imgEl = $("sceneImg");
+  if (imgEl && SCENE_IMAGES[id]) {
+    imgEl.src = SCENE_IMAGES[id];
+  }
   $("artifactStatus").textContent = has("medalRecovered") ? "Objeto recuperado" : "Objeto ausente";
   $("sceneText").innerHTML = current.text;
   $("choices").innerHTML = "";
