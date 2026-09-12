@@ -120,6 +120,17 @@ const gamesData = [
     image: "jogos/O-misterio-das-1545/assets/images/museu-1545.png",
     folder: "jogos/O-misterio-das-1545/index.html",
     available: true
+  },
+  {
+    code: "13",
+    id: "onibus-1972",
+    title: "Ônibus 1972",
+    genre: "Narrativa Recursiva",
+    icon: "🚌",
+    overlayText: "O RELÓGIO MARCA 00:00. O PLANO COMEÇA AGORA.",
+    image: "assets/game4.png",
+    folder: "jogos/onibus-1972/index.html",
+    available: true
   }
 ];
 
