@@ -1,84 +1,58 @@
-# Roteiro Oficial: Ônibus 1972 — Grafo Não-Linear Recursivo (2005)
+# Roteiro Oficial: Ônibus 1972 — Drama Humano & Grafo Recursivo (2005)
 
 > **Documento de Acompanhamento — Oficina de Jogos Narrativos**  
-> **Estrutura:** Matriz Investigativa Não-Linear (Hub & Spoke Recursivo com Cruzamento de Tramas)  
+> **Tema:** Dramas Pessoais, Trauma, Redenção e Espionagem Governamental  
+> **Estrutura:** Matriz Investigativa Não-Linear com Personagens Humanizados  
 > **Líder da Investigação:** Policial Beredito  
-> **Ano:** 2005  
 
 ---
 
-## 1. Conceito da Matriz Não-Linear Recursiva
+## 1. Conceito Narrativo: Humanização dos Personagens
 
-Diferente de uma história linear, o jogo funciona como um **Grafo de Investigação Aberto**. O Policial Beredito pode circular livremente pelas 4 frentes da garagem a cada rodada de relógio, coletando evidências que se cruzam para destravar perguntas secretas em outras áreas.
-
-Se o tempo esgotar (00:30 AM) sem provas suficientes, ou se uma acusação precipitada for feita, o relógio quântico do Ônibus 1972 aciona o laço temporal, retornando às **00:00 AM de 2005**. O jogador **preserva todas as pistas e cruzamentos de tramas descobertos**, abrindo novas ramificações no loop seguinte!
+Nenhum personagem em *Ônibus 1972* é um mero peão funcional. Todos possuem **conflitos psicológicos, medos do passado, culpa ou problemas com a lei** que afetam como reagem ao Policial Beredito. Para avançar na investigação, Beredito precisa demonstrar empatia, resolver dilemas morais e conquistar a confiança de cada passageiro.
 
 ---
 
-## 2. As 4 Tramas Cruzadas (Intertwined Plots)
+## 2. Ficha Psicológica e Dramas Pessoais dos Personagens
+
+| Personagem | Função no Caso | Drama Pessoal & Conflito Emocional | Como Afeta a Investigação |
+| :--- | :--- | :--- | :--- |
+| **Frederico** | Cientista / Alvo | **Luto e Depressão**: Culpado pela morte de seu irmão na Serra da Lua. | Tenta reter a mochila por acreditar que o experimento pode alterar o passado e trazer seu irmão de volta. |
+| **Edilias** | Mecânico Assistente | **B.O. Antigo com a Polícia**: Condenação por alterar peças na juventude. | Tem horror a cooperar com Beredito com medo de ser responsabilizado. Beredito precisa oferecer imunidade/confiança. |
+| **Janeto** | **O CULPADO** | **Desespero Familiar**: Pai acuado tentando pagar o tratamento médico urgente de sua filha. | Não é um vilão frio, mas alguém pressionado a spiar a rota. Confrontá-lo exige empatia para obter a confissão. |
+| **Louise** | Operadora de Rádio | **Busca pelo Pai Desaparecido**: Filha de um militar que sumiu em 1972. | Esconde a frequência `FREQ-107.5` por medo de expor os relatórios confidenciais de seu falecido pai. |
+| **Brinidite** | Passageira Atenta | **Ansiedade e Insônia**: Escreve diários como válvula de escape. | Tem vergonha de mostrar o caderno onde anotou a rota de Janeto. Exige sensibilidade de Beredito. |
+| **Valdinete** | Testemunha Local | **Solidão e Abandono**: Sente-se invisível para a cidade. | Quer ajudar Beredito para se sentir ouvida, mas teme a retaliação do espião na garagem. |
+| **Peter** | Aluno de TI | **Insegurança e Medo do Fracasso**: Pavor de decepcionar Bernadete. | Paralisado achando que estragou a Câmera 04. Beredito precisa encorajá-lo. |
+| **Bernadete** | Professora | **Responsabilidade Materna**: Protetora feroz dos alunos. | Prioriza o acolhimento emocional da turma antes das burocracias policiais. |
+| **Policial Beredito** | Investigador Chefe | **Empatia Veterana**: Policial humano que valoriza a escuta. | Usa o diálogo e a compreensão dos dramas humanos para resolver o caso. |
+
+---
+
+## 3. Matriz de Conflitos & Escolhas de Empatia
 
 ```
-                       ┌─────────────────────────────────────────┐
-                       │  HUB CENTRAL DA GARAGEM (00:00 AM)      │
-                       │  Policial Beredito & Caderno de Bordo   │
-                       └───────────────────┬─────────────────────┘
-                                           │
-         ┌───────────────────┬─────────────┴─────────────┬───────────────────┐
-         ▼                   ▼                           ▼                   ▼
-┌──────────────────┐ ┌──────────────────┐   ┌──────────────────┐ ┌──────────────────┐
-│ TRAMA 1: MOCHILA │ │ TRAMA 2: CÂMERAS │   │ TRAMA 3: RÁDIO & │ │ TRAMA 4: ARMA-   │
-│ & EXPERIMENTO    │ │ & FOTOS CRT      │   │ CONTRADIÇÕES     │ │ DILHA & CERCO    │
-│ (Frederico &     │ │ (Peter & Chico)  │   │ (Janeto, Louise  │ │ (João, Amélia &  │
-│ Edilias)         │ │                  │   │ & Brinidite)     │ │ Valdinete)       │
-└────────┬─────────┘ └────────┬─────────┘   └────────┬─────────┘ └────────┬─────────┘
-         │                    │                      │                    │
-         └────────────────────┼──────────────────────┴────────────────────┘
-                              ▼
-           CRUZAMENTO DE PISTAS & MANDADO DE BEREDITO
+                 ┌─────────────────────────────────────────┐
+                 │ POLICIAL BEREDITO & DRAMAS HUMANOS      │
+                 │ Aconselhamento, Empatia & Laudo Policial│
+                 └────────────────────┬────────────────────┘
+                                      │
+        ┌───────────────────┬─────────┴─────────┬───────────────────┐
+        ▼                   ▼                   ▼                   ▼
+┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐
+│ DRAMA DE EDILIAS │ │ DRAMA DE FREDERICO│ │ DRAMA DE LOUISE  │ │ DRAMA DE JANETO  │
+│ Medo do B.O.     │ │ Luto pelo Irmão  │ │ Busca do Pai     │ │ Desespero da     │
+│ antigo -> Ganhar │ │ -> Oferecer      │ │ -> Garantir      │ │ Filha -> Obter   │
+│ Confiança        │ │ Acolhimento      │ │ Sigilo do Rádio  │ │ Confissão Humana │
+└──────────────────┘ └──────────────────┘ └──────────────────┘ └──────────────────┘
 ```
 
-### 🔹 Trama 1: O Dossiê do Experimento (Frederico & Edilias)
-- Frederico carrega a mochila com o protótipo e relatórios de anomalias da Serra da Lua.
-- Edilias examina o bagageiro e prova que a trava foi cortada de fora para dentro com lâmina de precisão.
-- *Cruzamento*: Exige o vídeo recuperado por Peter (Trama 2) para confirmar quem segurava a lâmina.
-
-### 🔹 Trama 2: O Gravador de Vídeo CRT (Peter & Chico)
-- Câmera 04 registrara a invasão, mas os últimos 3 minutos foram corrompidos.
-- Peter usa o terminal de 2005 para restaurar os frames apagados.
-- *Cruzamento*: Exige o código de rádio de Louise (Trama 3) para sincronizar o áudio das câmeras.
-
-### 🔹 Trama 3: O Rádio & As Anotações de Rota (Janeto, Louise & Brinidite)
-- Brinidite entrega o caderno com a rota do 1972 monitorada dia a dia por Janeto.
-- Louise sintoniza uma frequência militar suspeita transmitindo da Serra da Lua.
-- Janeto nega ter estado no pátio, alegando que estava conversando com Frederico.
-- *Cruzamento*: Confrontar Janeto com o depoimento de Valdinete (Trama 4) derruba seu álibi falso!
-
-### 🔹 Trama 4: O Cerco na Figueira (João Alegria, Amélia & Valdinete)
-- Valdinete testemunhou Janeto com a câmera e o caderno às 23h.
-- João Alegria prepara a mochila falsa de isca e Amélia instala a rede na figueira.
-- *Cruzamento*: Requer o Mandado de Segurança expedido por Beredito após juntar as provas das Tramas 1, 2 e 3.
-
 ---
 
-## 3. Matriz de Pistas Cruzadas
+## 4. O Sistema de Finais Humanizados
 
-| Pista / Evidência | Encontrada Em | Necessária Para Desbloquear |
-| :--- | :--- | :--- |
-| `depoimento_valdinete` | Trama 4 (Valdinete) | Desmantelar o álibi falso de Janeto na Trama 3. |
-| `codigo_radio_louise` | Trama 3 (Louise) | Destravar a restauração de vídeo de Peter na Trama 2. |
-| `video_restaurado_peter` | Trama 2 (Peter) | Confirmar o laudo de lâmina de Edilias na Trama 1. |
-| `caderno_rotas_janeto` | Trama 3 (Brinidite) | Revelar a intenção de roubo da mochila de Frederico (Trama 1). |
-| `laudo_bagageiro_edilias`| Trama 1 (Edilias) | Provar a autoria do crime ao Policial Beredito. |
-| `mandado_seguranca` | Hub de Beredito | Requisito final para a **Prisão em Flagrante (Final 1)** na Trama 4. |
-
----
-
-## 4. O Sistema de 7 Finais e Ramificações
-
-1. **Final 1 (Verdadeiro — Prisão por Espionagem e Preservação do Dossiê)**: Cruzamento completo de todas as 4 tramas! Janeto é detido em flagrante pela armadilha da figueira e Beredito protege o experimento.
-2. **Final 2 (Erro Judiciário — Falso Culpado)**: Acusar Edilias ou Louise com base em provas incompletas. Janeto escapa e o laço temporal reseta.
-3. **Final 3 (Perseguição na Serra da Lua)**: Janeto rouba uma folha do dossiê e foge pela estrada. Beredito e Tony iniciam uma caçada com o 1972.
-4. **Final 4 (A Revelação do Relógio de 1972)**: Descobrir que o protótipo no painel do ônibus reage à mochila de Frederico, revelando a origem quântica do laço temporal!
-5. **Final 5 (Fuga Prematura)**: Assustar Janeto antes de colher as provas cruzadas.
-6. **Final 6 (Colapso Temporal 00:00)**: Janeto força a chave do motor e reseta o tempo.
-7. **Final 7 (Confissão e Acordo sob Custódia)**: Janeto confessa suas razões e colabora com Beredito sob custódia policial.
+1. **Final 1 (Vitória Policial & Redenção)**: Beredito prende Janeto, mas assegura assistência médica para sua filha e ajuda Frederico a aceitar o luto, garantindo o sucesso da viagem de Bernadete!
+2. **Final 2 (Quebra de Confiança — Erro de Acusação)**: Acusar Edilias por causa de seu B.O. antigo destrói sua vida e deixa Janeto escapar.
+3. **Final 3 (Fuga Desesperada pela Serra)**: Janeto foge tomado pelo desespero e Beredito o persegue na montanha.
+4. **Final 4 (A Revelação do Relógio de 1972 — Final Secreto)**: Frederico descobre que o experimento não trará o irmão de volta, mas perdoa o passado.
+5. **Final 5 (Confissão Espontânea sob Custódia)**: Com o acolhimento de Beredito e Frederico, Janeto entrega o dossiê e aceita colaborar sob custódia policial.
