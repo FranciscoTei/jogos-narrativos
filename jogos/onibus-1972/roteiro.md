@@ -11,6 +11,8 @@
 
 Nenhum personagem em *Ônibus 1972* é um mero peão funcional. Todos possuem **conflitos psicológicos, medos do passado, culpa ou problemas com a lei** que afetam como reagem ao Policial Beredito. Para avançar na investigação, Beredito precisa demonstrar empatia, resolver dilemas morais e conquistar a confiança de cada passageiro.
 
+> 💡 **Nota de Design Diegético:** Para preservar o mistério investigativo, as opções do painel de controle e os botões de escolha **NÃO** revelam antecipadamente os traumas ou segredos dos personagens (ex: sem etiquetas como `[TRAMA 1]` ou `(Luto)`). As opções são apresentadas estritamente como ações físicas do policial (`Investigar o bagageiro`, `Ir à sala CRT`), permitindo que a descoberta humana ocorra organicamente através do diálogo.
+
 ---
 
 ## 2. Ficha Psicológica e Dramas Pessoais dos Personagens

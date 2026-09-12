@@ -1,26 +1,24 @@
-# Plano de Tarefas: Restauração e Correção do Ônibus 1972
+# Plano de Tarefas: Remoção de Spoilers e Restauração do Mistério Diegético
 
 ## 🎯 Objetivo
-Diagnosticar a interrupção do funcionamento do jogo **Ônibus 1972**, restaurar a classe `GameEngine` completa em `game.js`, validar todas as conexões do DOM no `index.html` e garantir uma execução não-linear fluida com suporte a pistas conservadas, imagens cinemáticas e modais.
+Eliminar a exibição antecipada dos dramas pessoais nos botões de escolha e menus do jogo **Ônibus 1972**. Transformar a navegação em ações investigativas puras e diegéticas, permitindo que os segredos, traumas e motivações dos personagens sejam descobertos gradualmente durante os diálogos.
 
 ---
 
 ## 📋 Lista de Tarefas (Task List)
 
-- [x] **Tarefa 1: Diagnóstico e Criação do `tasks.md`**  
-  - Diagnosticada a falta da classe `GameEngine` ao final do arquivo `game.js`.  
-  - Criado o plano detalhado de etapas para acompanhamento contínuo.
+- [x] **Tarefa 1: Atualização do `tasks.md` com o Novo Objetivo**  
+  - Registrada a necessidade de ocultar rótulos explicativos ("Luto", "Receio da Polícia", "Desespero") nos menus.
 
-- [x] **Tarefa 2: Restauração da classe `GameEngine` no `game.js`**  
-  - Reimplementado o motor de jogo completo (`constructor`, `loadStorage`, `saveStorage`, `bindEvents`, `selectChoice`, `render`, `renderSceneSVG`, `renderNotebook`, `renderGraph`, `playSound`, `initParticles`).
-  - Garantida a correta instanciação no evento `DOMContentLoaded`.
+- [x] **Tarefa 2: Reformulação dos Nós Narrativos no `roteiro.md`**  
+  - Reescrever o mapa de escolhas sem spoilers, focando em locais físicos e observações de cena.
 
-- [x] **Tarefa 3: Validação de Sintaxe JS e IDs do HTML**  
-  - Executado `node --check` com sucesso.  
-  - Confirmado que os seletores DOM de `index.html` correspondem aos elementos do `game.js`.
+- [x] **Tarefa 3: Atualização do `game.js` com Escolhas Investigativas Diegéticas**  
+  - Substituir os textos dos botões de escolha por ações de perito/detetive (`[1] Ir até o bagageiro...`, `[2] Entrar na sala CRT...`, etc.).  
+  - Garantir que as revelações emocionais aconteçam somente dentro do corpo dos diálogos.
 
-- [ ] **Tarefa 4: Verificação de Execução do Servidor Dev**  
-  - Rodar o servidor HTTP local na porta 8085 e testar a interatividade das escolhas, laço temporal, diário de pistas e modais.
+- [x] **Tarefa 4: Validação de Sintaxe JS e Testes de Execução**  
+  - Executar `node --check` em `game.js` para garantir ausência de erros.
 
-- [ ] **Tarefa 5: Salvamento e Commit no Repositório Git**  
-  - Fazer o commit das correções validadas com mensagem clara de restauração.
+- [x] **Tarefa 5: Salvamento e Commit no Repositório Git**  
+  - Atualizar `tasks.md` com 100% de conclusão e fazer o commit.

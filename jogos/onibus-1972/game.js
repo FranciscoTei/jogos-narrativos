@@ -108,38 +108,38 @@ const NODES = {
     text: `
       <p>Na madrugada de <strong>2005</strong>, o <strong>Policial Beredito</strong> instalou a central na guarita da garagem.</p>
       <p>O <strong>Ônibus 1972</strong> está pronto para a viagem de <strong>Bernadete</strong>, mas a tentativa de roubo da mochila do passageiro <strong>Frederico</strong> abalou a todos.</p>
-      <p>Beredito sabe que por trás do crime há <strong>medos, traumas e histórias humanas não contadas</strong>. Escolha qual frente examinar:</p>
+      <p>Beredito sabe que há contradições e segredos entre os passageiros. Escolha qual setor da garagem investigar:</p>
     `,
     choices: [
       {
-        text: "💼 [TRAMA 1] Ouvir Frederico (Luto) e Edilias (Receio da Polícia) no bagageiro.",
+        text: "💼 [1] Investigar a área do bagageiro com Edilias e escutar Frederico.",
         target: "node_trama1"
       },
       {
-        text: "📼 [TRAMA 2] Ajudar Peter (Insegurança) a recuperar as gravações na Sala CRT.",
+        text: "📼 [2] Ir à Sala de Rádio e Câmeras CRT falar com o estudante Peter.",
         target: "node_trama2"
       },
       {
-        text: "📻 [TRAMA 3] Interrogar Janeto (Desespero), Louise (Busca do Pai) e Brinidite.",
+        text: "📻 [3] Interrogar os passageiros no salão do ônibus (Janeto, Louise e Brinidite).",
         target: "node_trama3"
       },
       {
-        text: "🌲 [TRAMA 4] Escutar Valdinete (Solidão) e armar a figueira com João e Amélia.",
+        text: "🌲 [4] Conversar com a moradora Valdinete e examinar o perímetro da figueira.",
         target: "node_trama4"
       },
       {
-        text: "⚖️ [EXPEDIR MANDADO HUMANO] Unir as provas e resolver o caso com justiça e compaixão!",
+        text: "⚖️ [5] [EXPEDIR MANDADO HUMANO] Unir as provas e resolver o caso com justiça e compaixão!",
         target: "node_expedir_mandado",
         reqClue: "video_restaurado_peter"
       }
     ]
   },
 
-  // TRAMA 1: MOCHILA & LUTO DE FREDERICO / MEDO DE EDILIAS
+  // FRENTE 1: BAGAGEIRO & MOCHILA DE FREDERICO / EDILIAS
   node_trama1: {
     id: "node_trama1",
-    chapter: "TRAMA 1 — O DOSSIÊ E O LUTO",
-    title: "O Conflito de Frederico e Edilias",
+    chapter: "INVESTIGAÇÃO NO BAGAGEIRO",
+    title: "O Dossiê e a Trava do Bagageiro",
     time: "00:05 AM",
     location: "📍 Bagageiro do Ônibus 1972",
     camera: "CAM 04 &bull; BAGAGEIRO",
@@ -161,7 +161,7 @@ const NODES = {
         target: "node_trama1_frederico_luto"
       },
       {
-        text: "⬅️ Voltar ao Hub Central de Beredito.",
+        text: "⬅️ Voltar ao Posto Principal de Beredito.",
         target: "node01"
       }
     ]
@@ -169,7 +169,7 @@ const NODES = {
 
   node_trama1_edilias_confianca: {
     id: "node_trama1_edilias_confianca",
-    chapter: "TRAMA 1 — SUPERAÇÃO DE EDILIAS",
+    chapter: "PERÍCIA DO BAGAGEIRO",
     title: "A Confiança Restabelecida de Edilias",
     time: "00:08 AM",
     location: "📍 Bagageiro do 1972",
@@ -181,7 +181,7 @@ const NODES = {
     `,
     choices: [
       {
-        text: "⬅️ Voltar ao Hub com o laudo de confiança de Edilias!",
+        text: "⬅️ Voltar ao Posto Principal com o laudo de confiança de Edilias!",
         target: "node01"
       }
     ]
@@ -189,8 +189,8 @@ const NODES = {
 
   node_trama1_frederico_luto: {
     id: "node_trama1_frederico_luto",
-    chapter: "TRAMA 1 — O PERDÃO DE FREDERICO",
-    title: "O Acolhimento do Luto de Frederico",
+    chapter: "ACOLHIMENTO E CONFIANÇA",
+    title: "O Desabafo de Frederico",
     time: "00:09 AM",
     location: "📍 Salão do Ônibus 1972",
     camera: "CAM 05 &bull; ACOLHIMENTO",
@@ -202,16 +202,16 @@ const NODES = {
     `,
     choices: [
       {
-        text: "⬅️ Voltar ao Hub Central.",
+        text: "⬅️ Voltar ao Posto Principal.",
         target: "node01"
       }
     ]
   },
 
-  // TRAMA 2: INSEGURANÇA DE PETER
+  // FRENTE 2: SALA CRT & GRAVAÇÃO DE PETER
   node_trama2: {
     id: "node_trama2",
-    chapter: "TRAMA 2 — INSEGURANÇA E SUPERAÇÃO",
+    chapter: "SALA DE MONITORAMENTO CRT",
     title: "O Dilema do Aluno Peter",
     time: "00:07 AM",
     location: "📍 Sala de Monitoramento CRT",
@@ -236,7 +236,7 @@ const NODES = {
 
   node_trama2_restaurado: {
     id: "node_trama2_restaurado",
-    chapter: "TRAMA 2 — SUPERAÇÃO DE PETER",
+    chapter: "PERÍCIA DE VÍDEO RESTAURADA",
     title: "O Sucesso de Peter na Câmera 04",
     time: "00:10 AM",
     location: "📍 Sala CRT",
@@ -255,11 +255,11 @@ const NODES = {
     ]
   },
 
-  // TRAMA 3: DRAMAS DE JANETO, LOUISE & BRINIDITE
+  // FRENTE 3: INTERROGATÓRIO DOS PASSAGEIROS
   node_trama3: {
     id: "node_trama3",
-    chapter: "TRAMA 3 — DRAMAS E CONTRADIÇÕES",
-    title: "Interrogatório Emocional no Ônibus",
+    chapter: "INTERROGATÓRIO NO SALÃO",
+    title: "Depoimentos no Salão do Ônibus",
     time: "00:09 AM",
     location: "📍 Salão do Ônibus 1972",
     camera: "CAM 05 &bull; INTERROGATÓRIO",
@@ -284,7 +284,7 @@ const NODES = {
         reqClue: "depoimento_valdinete"
       },
       {
-        text: "⬅️ Voltar ao Hub Central de Beredito.",
+        text: "⬅️ Voltar ao Posto Principal de Beredito.",
         target: "node01"
       }
     ]
@@ -292,8 +292,8 @@ const NODES = {
 
   node_trama3_desesperado: {
     id: "node_trama3_desesperado",
-    chapter: "TRAMA 3 — A VERDADE DE JANETO",
-    title: "O Desabafo Desesperado de Janeto",
+    chapter: "REVELAÇÕES DE JANETO",
+    title: "O Desabafo de Janeto",
     time: "00:14 AM",
     location: "📍 Salão do 1972",
     camera: "CAM 05 &bull; DESABAFO",
@@ -304,17 +304,17 @@ const NODES = {
     `,
     choices: [
       {
-        text: "⬅️ Voltar ao Hub para organizar o cerco garantindo ajuda à filha de Janeto.",
+        text: "⬅️ Voltar ao Posto Principal para organizar o cerco garantindo ajuda à filha de Janeto.",
         target: "node01"
       }
     ]
   },
 
-  // TRAMA 4: SOLIDÃO DE VALDINETE & OPERAÇÃO
+  // FRENTE 4: ESCUTA DA FIGUEIRA E VALDINETE
   node_trama4: {
     id: "node_trama4",
-    chapter: "TRAMA 4 — ESCUTA E OPERAÇÃO",
-    title: "A Escuta de Valdinete e o Cerco",
+    chapter: "PERÍMETRO DA FIGUEIRA",
+    title: "Depoimento de Valdinete e o Perímetro",
     time: "00:11 AM",
     location: "📍 Área da Figueira",
     camera: "CAM 06 &bull; FIGUEIRA",
@@ -336,7 +336,7 @@ const NODES = {
         reqClue: "mandado_seguranca"
       },
       {
-        text: "⬅️ Voltar ao Hub Central.",
+        text: "⬅️ Voltar ao Posto Principal de Beredito.",
         target: "node01"
       }
     ]
