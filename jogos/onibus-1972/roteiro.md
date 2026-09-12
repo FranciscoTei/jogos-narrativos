@@ -1,99 +1,86 @@
-# Roteiro Oficial: Ônibus 1972 (Jogo Narrativo Recursivo)
+# Roteiro Oficial: Ônibus 1972 — O Caso de 2005 (Jogo Narrativo Recursivo)
 
 > **Documento de Acompanhamento — Oficina de Jogos Narrativos**  
-> **Tema:** Mistério, Aventura e Laço Temporal na Garagem de Ônibus  
+> **Ano da Investigação:** 2005  
+> **Líder da Investigação:** Policial Beredito  
+> **Culpado Principal:** Janeto  
 > **Estrutura:** Narrativa recursiva com retenção de pistas entre loops, 5 desfechos e múltiplos caminhos  
-> **Protagonistas:** Sr. Chico (Guarda), Teny / Antônio (Motorista), João Alegria, Amélia e a Turma do 1972  
 
 ---
 
 ## 1. Ficha Técnica
 
 - **Título Público:** Ônibus 1972
-- **Autores:** Grupo de Estudantes & Orientação Pedagógica
-- **Identidade Visual:** Garagem noturna retrô, faróis amarelos reluzentes, vapor da serra, ciano tecnológico e diário de bordo digital.
-- **Mecânica Principal:** *Recursividade Temporal com Memória Conservada*. Se o plano de captura falhar, o relógio do painel do 1972 retrocede para 00:00, mas o jogador **mantém os itens e evidências** encontrados na tentativa anterior, liberando novas opções de diálogo e estratégias avançadas.
+- **Ano da História:** 2005
+- **Identidade Visual:** Garagem noturna de 2005, sirenes policiais em azul e vermelho, luzes amareladas de faróis, diário de bordo e laudo pericial.
+- **Mecânica Principal:** *Recursividade Temporal com Memória Conservada*. Se a tentativa de captura falhar ou o suspeito Janeto tentar fugir, o relógio do painel do 1972 retrocede para 00:00. O jogador **mantém os itens, depoimentos e evidências** encontrados na tentativa anterior, liberando novos interrogatórios e mandados de prisão com o Policial Beredito.
 
 ---
 
-## 2. Premissa Expandida
+## 2. Premissa Atualizada (Ano 2005)
 
-Em uma pacata cidade do interior, o lendário ônibus número **1972** está preparado para levar uma turma de estudantes em uma aguardada aula de campo na **Serra da Lua**. À meia-noite da véspera da viagem, enquanto a cidade dorme, o guarda noturno **Senhor Chico** escuta o bipe agudo do alarme das câmeras da garagem.
+Na véspera da expedição de 2005 para a **Serra da Lua**, o lendário ônibus número **1972** está estacionado na garagem municipal sob a supervisão da professora **Bernadete** e do motorista **Tony**.
 
-Ao verificar os monitores, Chico descobre dois suspeitos encapuzados tentando arrombar as portas do Ônibus 1972 com um alicate industrial. Em vez de agir sozinho no escuro, Chico liga para **Teny** (apelido de Antônio, o experiente motorista).
+À meia-noite das 00:00, o guardinha **Chico** detecta um alarme de invasão nas câmeras. Dois indivíduos tentam forçar o compartimento secreto sob o Banco 19. Chico liga imediatamente para Tony e aciona a polícia militar local.
 
-Teny acorda secretamente os alunos alojados na sede da escola vizinha à garagem. Reunidos no escuro do ônibus, **João Alegria** propõe usar um corredor rápido como **isca**, atraindo a dupla para a área externa, enquanto **Amélia** projeta uma **armadilha dupla**: um buraco camuflado com grama falsa associado a uma rede oculta nos galhos da figueira.
+O **Policial Beredito** chega ao local para assumir a investigação oficial. Ao reunir os passageiros e alunos alojados na sede vizinha, Beredito colhe depoimentos cruciais:
+- **Edilias** (mecânico assistente) confirma que a tranca do banco 19 foi adulterada previamente por dentro.
+- **Valdinete** (testemunha local) relata ter visto **Janeto** rondando o pátio com uma caixa de ferramentas antes das 23h.
+- **Brinidite** entrega ao policial um bilhete caído com as anotações secretas da Serra da Lua.
+- **Frederico** revela ter sido pressionado por Janeto para cobrir a fuga.
+- **Louise** assume a central de rádio da garagem.
+- **Peter** auxilia Beredito a extrair os registros digitais das câmeras.
 
-Entretanto, Carlão e Pietrão não são ladrões comuns de peças: eles buscam uma **antiga relíquia da Serra da Lua** escondida no compartimento secreto do banco 19 do ônibus desde o ano de 1972!
-
----
-
-## 3. Personagens
-
-1. **Senhor Chico**: Guarda noturno atencioso, conhece cada canto da garagem e possui a chave mestra dos holofotes.
-2. **Teny (Antônio)**: O respeitado motorista do Ônibus 1972, calmo sob pressão e mestre em mecânica vintage.
-3. **João Alegria**: Aluno destemido e veloz, especialista em manobras de distração ("Operação Isca").
-4. **Amélia**: Aluna estrategista e engenhosa, mestre em nós de corda e armadilhas ambientais.
-5. **Carlão & Pietrão**: A dupla de invasores noturnos. Pietrão carrega as ferramentas e Carlão guarda o mapa secreto.
+Enquanto Beredito organiza o cerco policial, **João Alegria** executa a manobra de isca para atrair o suspeito, e **Amélia** monta a armadilha do buraco e da rede na figueira centenária.
 
 ---
 
-## 4. Estrutura de Pistas & Inventário Recursivo
+## 3. Ficha de Personagens & Funções (2005)
 
-Ao longo dos loops temporais, o jogador pode coletar 6 itens/pistas que **permanecem salvos** mesmo se a rodada reiniciar:
+| Personagem | Função / Papel no Caso de 2005 |
+| :--- | :--- |
+| **Policial Beredito** | Investigador oficial da Polícia Militar. Conduz o inquérito e emite o mandado de prisão. |
+| **Janeto** | **O CULPADO**. Passageiro infiltrado e mandante do arrombamento do Banco 19! |
+| **Tony (Motorista)** | Motorista oficial do Ônibus 1972, especialista na mecânica do veículo. |
+| **Chico (Guardinha)** | Vigia noturno da garagem que deu o primeiro alarme de invasão. |
+| **João Alegria** | Aluno e encarregado da manobra de atração ("Operação Isca"). |
+| **Amélia** | Aluna estrategista que desenhou a armadilha do buraco camuflado e da rede na figueira. |
+| **Bernadete** | Professora e coordenadora pedagógica responsável pela aula de campo. |
+| **Edilias** | Passageiro e mecânico assistente que identificou a trava adulterada de Janeto. |
+| **Louise** | Passageira e operadora do rádio de comunicação de emergência. |
+| **Brinidite** | Passageira atenta que recolheu o bilhete de rotas e vestígios de Janeto. |
+| **Peter** | Aluno de tecnologia que analisa os gravadores e vídeos para Beredito. |
+| **Valdinete** | Moradora local que testemunhou Janeto sondando o pátio às 23h. |
+| **Frederico** | Passageiro e testemunha-chave que desmascarou os planos de Janeto. |
+
+---
+
+## 4. Estrutura de Pistas & Inventário de Beredito (2005)
 
 | ID da Pista | Nome | Efeito no Jogo |
 | :--- | :--- | :--- |
-| `alicate_codificado` | Alicate de Pietrão | Revela que os invasores não queriam destruir o motor, apenas abrir a tranca do banco 19. |
-| `mapa_serra_lua` | Mapa de 1972 | Encontrado sob o estofamento do banco 19. Desbloqueia o diálogo de rendição com Carlão. |
-| `lanterna_chico` | Lanterna de Alta Potência | Permite cegar Pietrão durante a perseguição na figueira. |
-| `rede_reforcada` | Rede de Caça de Amélia | Garante 100% de sucesso na captura se o buraco estiver coberto. |
-| `apito_joao` | Apito Esportivo de João | Usado para guiar a isca com precisão militar no escuro. |
-| `plano_mestre_docs` | Esquema das Armadilhas | Requisito para desbloquear o **Final Mestre (Final 1)**. |
+| `laudo_edilias` | Laudo da Trava (Edilias) | Prova que a tranca do banco 19 foi violada por alguém que tinha acesso interno. |
+| `bilhete_janeto` | Bilhete Rasurado (Brinidite) | Anotações de Janeto revelando o plano de roubar a relíquia da Serra da Lua. |
+| `depoimento_valdinete` | Testemunho de Valdinete | Confirma a presença de Janeto no pátio antes das 00:00. |
+| `rede_amelia` | Rede de Caça de Amélia | Armadilha de contenção instalada na figueira. |
+| `apito_joao` | Apito Esportivo de João | Guia a corrida de distração até a armadilha. |
+| `mandado_beredito` | Mandado Policial de Beredito | Requisito para o **Final Mestre de Prisão de Janeto (Final 1)**. |
 
 ---
 
-## 5. Grafo dos Nós Narrativos
+## 5. Os 5 Finais do Caso 2005
 
-```
-[Nó 01: O Alerta na Garagem]
-       ├──> Escolha A: Sr. Chico vai investigar com a lanterna. (Risco de ser visto)
-       └──> Escolha B: Sr. Chico liga imediatamente para Teny. (Caminho Principal)
-              ↓
-[Nó 02: O Chamado de Meia-Noite]
-       ├──> Escolha A: Teny liga os faróis do ônibus para assustá-los. (Fuga Prematura -> Loop 00:00)
-       └──> Escolha B: Teny acorda a turma em silêncio. (Avança para Reunião)
-              ↓
-[Nó 03: O Conselho do Ônibus 1972]
-       ├──> Ouvir João Alegria: Estratégia da Isca. (Ativa Modificador de Distração)
-       ├──> Ouvir Amélia: Estratégia do Buraco e Rede. (Ativa Modificador de Captura)
-       └──> [SE TIVER MAPA] Revelar o Segredo do Banco 19 antes da ação!
-              ↓
-[Nó 04: A Preparação das Armadilhas]
-       ├──> Combinação Perfeita: Isca de João + Buraco de Amélia + Holofote de Chico.
-       └──> Erro de Sincronia: Executar armadilha sem cobrir o buraco. (Falha de Captura -> Loop 00:00)
-              ↓
-[Nó 05: O Confronto com Carlão e Pietrão]
-       ├──> Opção 1: Acionar a armadilha no momento exato! -> [FINAL 1: Captura Perfeita]
-       ├──> Opção 2: Confrontar verbalmente usando o Mapa de 1972 -> [FINAL 5: A Verdade Revelada]
-       └──> Opção 3: Cercar apenas Pietrão enquanto Carlão foge -> [FINAL 3: A Perseguição na Serra]
-```
+1. **Final 1 — Prisão Oficial de Janeto (Vitória Perfeita Policial)**:
+   Com a isca de João e a rede de Amélia, Janeto é capturado em flagrante na figueira. O Policial Beredito apresenta o mandado e o laudo de Edilias, prendendo Janeto e recuperando o relicário para a viagem da professora Bernadete!
 
----
+2. **Final 2 — Alarme e Fuga de Janeto (Vitória Parcial)**:
+   Chico aciona as luzes antes do cerco de Beredito. Janeto foge na escuridão deixando o bilhete para trás, garantindo a segurança do ônibus mas deixando o caso em aberto.
 
-## 6. Os 5 Finais do Jogo
+3. **Final 3 — Perseguição na Serra da Lua**:
+   Janeto consegue escapar do pátio em direção à montanha. Beredito, Tony, João e a turma usam o Ônibus 1972 para iniciar uma perseguição oficial na serra.
 
-1. **Final 1 — Plano Mestre Impecável (Vitória Perfeita)**:
-   A isca de João atrai a dupla para a figueira; o buraco camuflado por Amélia faz Pietrão tropeçar e a rede suspensa prende Carlão. O grupo recupera o mapa intacto e parte para a viagem da Serra da Lua como verdadeiros heróis!
+4. **Final 4 — O Laço do Relógio 00:00 (Reinício Policial)**:
+   Janeto aciona o motor do 1972 para escapar, disparando o circuito quântico de segurança. O relógio reseta para 00:00 de 2005, mantendo os depoimentos e laudos no caderno do Policial Beredito!
 
-2. **Final 2 — O Alarme de Emergência (Vitória Parcial)**:
-   Os invasores são assustados pelos holofotes de Chico e fogem deixando o alicate para trás. O ônibus fica seguro, mas o mistério de 1972 permanece sem solução.
-
-3. **Final 3 — A Trilha da Serra da Lua (Final Aberto)**:
-   Pietrão é capturado na armadilha, mas Carlão escapa com metade do mapa em direção às montanhas. Teny e os alunos decidem usar a aula de campo para seguir as pistas na Serra.
-
-4. **Final 4 — O Laço do Relógio 00:00 (Reinício Recursivo)**:
-   Carlão consegue ligar o motor do ônibus, mas o circuito de segurança aciona o relógio do 1972. O tempo reseta para a meia-noite, e o jogador acorda com a memória e os itens da rodada anterior!
-
-5. **Final 5 — A Sociedade do Ônibus 1972 (Final Secreto)**:
-   Ao descobrir que Carlão era o antigo mecânico de 1972 tentando recuperar o diário de seu falecido pai, Teny e o grupo propõem uma aliança, transformando a expedição à Serra da Lua em uma missão arqueológica conjunta!
+5. **Final 5 — A Confissão de Janeto e a Redenção (Final Secreto)**:
+   Ao ser confrontado por Beredito, Frederico e Bernadete com as provas do Banco 19, Janeto confessa que buscava o diário de seu avô explorador de 1972. Beredito permite que ele acompanhe a expedição sob custódia policial!

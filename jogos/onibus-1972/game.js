@@ -2,43 +2,43 @@
    ÔNIBUS 1972 — MOTOR DE JOGO NARRATIVO RECURSIVO
    =================================================== */
 
-// Base Data: Clues Definition
+// Base Data: Clues Definition (Ano 2005)
 const CLUES = {
-  lanterna_chico: {
-    id: "lanterna_chico",
-    title: "Lanterna de Alta Potência",
-    icon: "🔦",
-    desc: "A pesada lanterna de foco duplo do Sr. Chico. Útil para iluminar a figueira ou cegar alvos na escuridão."
+  depoimento_valdinete: {
+    id: "depoimento_valdinete",
+    title: "Testemunho de Valdinete",
+    icon: "👁️",
+    desc: "Valdinete confirma ter visto Janeto rondando a garagem com uma caixa de ferramentas antes das 00:00."
   },
-  alicate_codificado: {
-    id: "alicate_codificado",
-    title: "Segredo das Trancas de 1972",
+  laudo_edilias: {
+    id: "laudo_edilias",
+    title: "Laudo da Trava Adulterada (Edilias)",
     icon: "🔧",
-    desc: "Informação ouvida de Pietrão: os invasores não querem roubar peças do motor, mas abrir o cofre do banco 19."
+    desc: "O mecânico Edilias provou ao Policial Beredito que a fechadura do Banco 19 foi violada por alguém interno."
+  },
+  bilhete_janeto: {
+    id: "bilhete_janeto",
+    title: "Bilhete Rasurado de Janeto (Brinidite)",
+    icon: "📜",
+    desc: "Entregue pela passageira Brinidite. Revela que Janeto planejava roubar o relicário da Serra da Lua."
   },
   apito_joao: {
     id: "apito_joao",
     title: "Apito Esportivo de João",
     icon: "🔊",
-    desc: "Usado por João Alegria para emitir sinais sonoros de alta frequência durante a corrida de atração da isca."
+    desc: "Usado por João Alegria para guiá-los com precisão militar até a área da armadilha."
   },
-  rede_reforcada: {
-    id: "rede_reforcada",
+  rede_amelia: {
+    id: "rede_amelia",
     title: "Rede de Caça de Amélia",
     icon: "🕸️",
-    desc: "Rede trançada presa aos galhos da figueira com uma roldana de desengate rápido. Garante 100% de contenção."
+    desc: "Instalada por Amélia na figueira centenária. Garante a contenção de Janeto em flagrante."
   },
-  mapa_serra_lua: {
-    id: "mapa_serra_lua",
-    title: "Mapa Secreto da Serra da Lua (1972)",
-    icon: "📜",
-    desc: "Encontrado sob a espuma do banco 19. Revela coordenadas antigas e a verdadeira motivação da invasão."
-  },
-  plano_mestre_docs: {
-    id: "plano_mestre_docs",
-    title: "Esquema do Cerco Perfeito",
-    icon: "🎯",
-    desc: "Combinação sincronizada da isca, armadilha, holofotes e revelação do segredo. Garante a vitória impecável."
+  mandado_beredito: {
+    id: "mandado_beredito",
+    title: "Mandado Policial de Beredito",
+    icon: "⚖️",
+    desc: "Expedido pelo Policial Beredito após Peter extrair as filmagens dos gravadores do ônibus."
   }
 };
 
@@ -47,87 +47,86 @@ const ENDINGS = {
   ending1: {
     id: "ending1",
     code: "FINAL 1",
-    title: "Plano Mestre Impecável (Vitória Perfeita)",
-    badge: "🏆",
-    desc: "Sincronia total! João atraiu a dupla, a rede de Amélia os capturou intactos e Chico acendeu os holofotes. O mapa foi recuperado e a viagem para a Serra da Lua será inesquecível!"
+    title: "Prisão Oficial de Janeto (Vitória Perfeita Policial)",
+    badge: "⚖️",
+    desc: "Flagrante perfeito! João atraiu Janeto, a rede de Amélia o prendeu na figueira e o Policial Beredito efetuou a prisão oficial. A professora Bernadete e os alunos seguiram para a Serra da Lua em paz!"
   },
   ending2: {
     id: "ending2",
     code: "FINAL 2",
-    title: "Alarme da Garagem (Fuga Prematura)",
+    title: "Fuga Prematura de Janeto",
     badge: "🚨",
-    desc: "Os holofotes assustaram Carlão e Pietrão antes da captura. O ônibus ficou em segurança, mas o mistério de 1972 permaneceu sem solução."
+    desc: "As luzes acendidas precipitadamente assustaram Janeto, que fugiu pela mata deixando a caixa de ferramentas para trás."
   },
   ending3: {
     id: "ending3",
     code: "FINAL 3",
-    title: "A Trilha da Serra da Lua (Perseguição)",
+    title: "Perseguição na Serra da Lua",
     badge: "⛰️",
-    desc: "Pietrão caiu na armadilha, mas Carlão fugiu para a serra com metade do mapa. Teny e os alunos decidem usar a aula de campo para seguir as pistas na montanha!"
+    desc: "Janeto escapou do pátio rumo às montanhas. O Policial Beredito, o motorista Tony e os alunos sobem no 1972 para uma perseguição oficial na serra!"
   },
   ending4: {
     id: "ending4",
     code: "FINAL 4",
-    title: "O Laço Temporal das 00:00",
+    title: "O Relógio 00:00 (Reinício Policial)",
     badge: "🌀",
-    desc: "Carlão conseguiu dar partida no 1972, acionando o alarme quântico do ônibus. O tempo resetou para meia-noite, mantendo suas memórias e evidências!"
+    desc: "Ao tentar escapar, Janeto acionou o painel do 1972, disparando o laço temporal de 2005. O tempo reseta mantendo todos os laudos no caderno de Beredito!"
   },
   ending5: {
     id: "ending5",
     code: "FINAL 5",
-    title: "A Sociedade do Ônibus 1972 (Final Secreto)",
+    title: "Confissão de Janeto e Redenção (Final Secreto)",
     badge: "🌟",
-    desc: "Ao apresentar o Mapa de 1972, Teny descobre que Carlão era filho do mecânico original. Eles formam uma aliança histórica para explorar a Serra da Lua juntos!"
+    desc: "Confrontado por Beredito e Frederico, Janeto confessa em lágrimas que buscava o diário de seu avô. Beredito autoriza que ele viaje sob custódia policial!"
   }
 };
 
-// Base Data: Story Nodes
+// Base Data: Story Nodes (Caso de 2005)
 const NODES = {
   node01: {
     id: "node01",
-    chapter: "PRÓLOGO",
-    title: "O Alerta das 00:00",
+    chapter: "PRÓLOGO (2005)",
+    title: "O Alerta das 00:00 na Garagem",
     time: "00:00 AM",
     location: "📍 Garagem Municipal - Guarita",
     camera: "CAM 01 &bull; PÁTIO",
-    avatars: ["Sr. Chico"],
+    avatars: ["Chico (Guardinha)", "Tony (Motorista)"],
     text: `
-      <p>O silêncio da meia-noite na garagem municipal de São Pedro das Missões foi subitamente quebrado pelo <strong>bipe agudo e contínuo</strong> do sistema de vigilância.</p>
-      <p>O guarda noturno, <strong>Senhor Chico</strong>, acordou sobressaltado da cadeira de balanço. Esfregando os olhos, ele olhou para o monitor CRT de fósforo verde da câmera 04. No canto inferior da tela, próximo ao lendário <strong>Ônibus 1972</strong> — o veículo escolhido para a aula de campo na Serra da Lua —, duas sombras encapuzadas tentavam forçar a tranca lateral com um cabo metálico.</p>
-      <blockquote>"Mas o que é isso? Ninguém mexe no 1972 na minha guarda!" — resmungou Chico.</blockquote>
+      <p>Na gelada madrugada de <strong>2005</strong>, o guardinha <strong>Chico</strong> observava os monitores CRT da garagem municipal.</p>
+      <p>O lendário <strong>Ônibus 1972</strong> estava preparado para levar a professora <strong>Bernadete</strong> e seus alunos na aula de campo para a Serra da Lua. Subitamente, às 00:00, o alarme de segurança disparou!</p>
+      <p>No monitor 04, um vulto encapuzado tentava violar a tranca do Banco 19. Chico ligou para o motorista <strong>Tony</strong> e acionou a Polícia Militar local.</p>
     `,
     choices: [
       {
-        text: "Ligar imediatamente para o motorista Teny (Antônio) no alojamento vizinho.",
+        text: "Notificar o motorista Tony e aguardar a chegada do Policial Beredito.",
         target: "node02"
       },
       {
-        text: "Pegar a lanterna de alta potência e ir inspecionar o pátio furtivamente.",
-        target: "node01_chico_stealth",
-        addClue: "lanterna_chico"
+        text: "Inspecionar o pátio com a moradora local Valdinete antes da polícia chegar.",
+        target: "node01_stealth",
+        addClue: "depoimento_valdinete"
       }
     ]
   },
 
-  node01_chico_stealth: {
-    id: "node01_chico_stealth",
+  node01_stealth: {
+    id: "node01_stealth",
     chapter: "CAPÍTULO I",
-    title: "Inspeção Furtiva nas Sombras",
+    title: "Depoimento da Testemunha Valdinete",
     time: "00:03 AM",
-    location: "📍 Pátio Externo - Próximo ao Ônibus 1972",
+    location: "📍 Pátio Externo",
     camera: "CAM 04 &bull; LATERAL 1972",
-    avatars: ["Sr. Chico"],
+    avatars: ["Chico (Guardinha)", "Valdinete"],
     text: `
-      <p>Apertando o cabo emborrachado da sua pesada <strong>Lanterna de Alta Potência</strong>, o Sr. Chico se esgueirou por trás das pilastras da garagem.</p>
-      <p>Com o coração acelerado, ele se aproximou a poucos metros da lateral do 1972. Escondido atrás dos pneus de reserva, Chico ouviu a voz grave de Pietrão resmungar:</p>
-      <blockquote>"Rápido, Carlão! O alicate tá no ponto. A gente só precisa soltar a tranca do banco 19! O mapa tá escondido debaixo do estofamento desde 1972!"</blockquote>
-      <p>Chico recuou em silêncio. Ele agora tinha certeza: <em>não era um furto comum, era uma busca por algo histórico!</em></p>
+      <p>Acompanhado da moradora local <strong>Valdinete</strong>, o guardinha Chico se esgueirou até os pneus de reserva.</p>
+      <p>Valdinete apontou para a sombra perto da porta do ônibus:</p>
+      <blockquote>"Chico, eu conheço aquele casado azul! É o <strong>Janeto</strong>! Vi ele rondando a garagem às 23h carregando uma chave de fenda!"</blockquote>
+      <p>Com essa testemunha crucial, Chico correu para encontrar a patrulha policial.</p>
     `,
     choices: [
       {
-        text: "Recuar sem ser visto e ligar urgentemente para o motorista Teny.",
-        target: "node02",
-        addClue: "alicate_codificado"
+        text: "Entregar o testemunho de Valdinete ao Policial Beredito.",
+        target: "node02"
       }
     ]
   },
@@ -135,23 +134,24 @@ const NODES = {
   node02: {
     id: "node02",
     chapter: "CAPÍTULO I",
-    title: "O Chamado de Meia-Noite",
-    time: "00:05 AM",
-    location: "📍 Alojamento dos Estudantes",
-    camera: "CAM 02 &bull; ALOJAMENTO",
-    avatars: ["Teny (Motorista)"],
+    title: "A Chegada do Policial Beredito",
+    time: "00:06 AM",
+    location: "📍 Pátio da Garagem - Viatura 2005",
+    camera: "CAM 02 &bull; VIATURA",
+    avatars: ["Policial Beredito", "Tony", "Edilias"],
     text: `
-      <p>O telefone fixo do alojamento tocou de forma estridente. <strong>Teny (Antônio)</strong>, o experiente motorista do 1972, atendeu no primeiro toque.</p>
-      <blockquote>"Teny! É o Chico! Tem dois homens tentando arrombar a porta do 1972 com ferramentas!" — sussurrou o guarda.</blockquote>
-      <p>Teny sentiu um calafrio. O Ônibus 1972 era seu orgulho e o transporte de dezenas de alunos no dia seguinte. Ele precisava tomar uma decisão estratégica rápida.</p>
+      <p>A viatura da Polícia Militar encostou com as luzes giratórias ligadas. O <strong>Policial Beredito</strong> desembarcou com sua prancheta de inquérito.</p>
+      <p>O mecânico assistente <strong>Edilias</strong> aproximou-se de Beredito e apontou para a trava do 1972:</p>
+      <blockquote>"Seu Policial Beredito! Examinei a trava do Banco 19. Ela foi adulterada por dentro antes da meia-noite! Alguém dos passageiros facilitou a entrada!"</blockquote>
     `,
     choices: [
       {
-        text: "Acordar os alunos estrategistas (João Alegria e Amélia) em silêncio para criar um plano.",
-        target: "node03"
+        text: "Reunir todos os passageiros dentro do 1972 para o interrogatório oficial de Beredito.",
+        target: "node03",
+        addClue: "laudo_edilias"
       },
       {
-        text: "Correr direto para o ônibus e acender os faróis altos para assustar a dupla.",
+        text: "Tony liga os faróis do ônibus para tentar flagrar o invasor na escuridão.",
         target: "node02_farois"
       }
     ]
@@ -160,19 +160,18 @@ const NODES = {
   node02_farois: {
     id: "node02_farois",
     chapter: "CAPÍTULO I",
-    title: "Fuga Prematura",
+    title: "Fuga Prematura do Suspeito",
     time: "00:08 AM",
     location: "📍 Garagem Municipal",
     camera: "CAM 04 &bull; FACHADA",
-    avatars: ["Teny (Motorista)", "Sr. Chico"],
+    avatars: ["Policial Beredito", "Tony"],
     text: `
-      <p>Teny correu até o painel principal e ligou os holofotes centrais da garagem. Uma luz amarelada ofuscante cobriu o 1972.</p>
-      <p>Assustados com o estouro de luz, Carlão e Pietrão saíram em disparada em direção ao matagal da figueira, derrubando o alicate no chão.</p>
-      <p>O ônibus ficou a salvo, mas a dupla escapou sem revelar o verdadeiro motivo do arrombamento...</p>
+      <p>Tony acendeu os faróis altos do 1972. Assustado com o clarão, o suspeito cortou a cerca e fugiu para o matagal.</p>
+      <p>O Policial Beredito recolheu a caixa de ferramentas abandonada, mas o mandante continuou à solta...</p>
     `,
     choices: [
       {
-        text: "Registrar a ocorrência na garagem. (Conclui com Final 2)",
+        text: "Registrar a fuga parcial de Janeto no boletim de ocorrência. (Conclui com Final 2)",
         target: "node_ending2"
       }
     ]
@@ -181,33 +180,35 @@ const NODES = {
   node03: {
     id: "node03",
     chapter: "CAPÍTULO II",
-    title: "O Conselho Secreto no Ônibus 1972",
-    time: "00:10 AM",
+    title: "Interrogatório Policial no Ônibus 1972",
+    time: "00:12 AM",
     location: "📍 Interior do Ônibus 1972",
-    camera: "CAM 05 &bull; SALÃO INTERNO",
-    avatars: ["Teny", "João Alegria", "Amélia"],
+    camera: "CAM 05 &bull; INTERROGATÓRIO",
+    avatars: ["Policial Beredito", "Bernadete", "Janeto", "Brinidite", "Frederico"],
     text: `
-      <p>Em poucos minutos, Teny, João Alegria, Amélia e o Sr. Chico estavam reunidos no escuro do salão do 1972, comunicando-se por gestos e sussurros.</p>
-      <p><strong>João Alegria</strong> foi o primeiro a sugerir uma tática de mobilidade:</p>
-      <blockquote>"Se a gente apenas assustar, eles voltam amanhã. Eu coloco minha jaqueta refletiva e sirvo de <strong>isca</strong>, atraindo eles para o pátio externo!"</blockquote>
-      <p><strong>Amélia</strong> apontou para o corredor lateral:</p>
-      <blockquote>"E enquanto eles perseguirem o João, eu e o Chico cobrimos o buraco da figueira com grama falsa e armamos a <strong>rede suspensa</strong> nos galhos altos!"</blockquote>
+      <p>O Policial Beredito reuniu a professora <strong>Bernadete</strong>, os passageiros <strong>Janeto</strong>, <strong>Louise</strong>, <strong>Brinidite</strong>, <strong>Peter</strong>, <strong>Frederico</strong> e os alunos no salão do ônibus.</p>
+      <p>A passageira <strong>Brinidite</strong> ergueu a mão e entregou um papel rasurado:</p>
+      <blockquote>"Policial Beredito! Encontrei este bilhete caído no corredor. Contém os horários do Banco 19 e a assinatura de <strong>Janeto</strong>!"</blockquote>
+      <p>Pressionado pelas evidências, <strong>Frederico</strong> confessou: <em>"É verdade, Beredito! O Janeto me ofereceu dinheiro para deixar a porta destravada!"</em></p>
+      <p>Vendo a situação, <strong>João Alegria</strong> e <strong>Amélia</strong> apresentaram o plano de captura!</p>
     `,
     choices: [
       {
-        text: "Aprovar o plano da Isca de João Alegria e preparar o apito de corrida.",
+        text: "Aprovar a corrida de isca de João Alegria para atrair Janeto até a figueira.",
         target: "node04_joao",
-        addClue: "apito_joao"
+        addClue: "bilhete_janeto",
+        addClue2: "apito_joao"
       },
       {
-        text: "Focar primeiro na construção da armadilha do buraco e rede de Amélia.",
+        text: "Armar a rede de caça de Amélia nos galhos da figueira sob vigilância de Louise.",
         target: "node04_amelia",
-        addClue: "rede_reforcada"
+        addClue: "bilhete_janeto",
+        addClue2: "rede_amelia"
       },
       {
-        text: "⚠️ [EVIDÊNCIA CONSERVADA] Inspecionar o estofamento do Banco 19 antes da ação!",
+        text: "⚖️ [LAUDO DE EDILIAS] Beredito e Peter analisam os gravadores para expedir o Mandado de Prisão!",
         target: "node03_banco19",
-        reqClue: "alicate_codificado"
+        reqClue: "laudo_edilias"
       }
     ]
   },
@@ -215,22 +216,21 @@ const NODES = {
   node03_banco19: {
     id: "node03_banco19",
     chapter: "CAPÍTULO RECURSIVO",
-    title: "O Segredo Revelado do Banco 19",
-    time: "00:12 AM",
-    location: "📍 Fileira 10 - Banco 19",
+    title: "O Mandado de Prisão de Beredito",
+    time: "00:15 AM",
+    location: "📍 Banco 19 - Perícia Policial",
     camera: "CAM 05 &bull; BANCO 19",
-    avatars: ["Teny", "Amélia"],
+    avatars: ["Policial Beredito", "Peter", "Janeto"],
     text: `
-      <p>Usando a informação mantida na memória do laço temporal, Teny puxou a costura reforçada sob o assentamento do <strong>Banco 19</strong>.</p>
-      <p>Com um clique metálico seco, uma escotilha secreta de aço se abriu! Dentro havia uma cápsula de alumínio datada de <strong>1972</strong> contendo o <strong>Mapa Secreto da Serra da Lua</strong> e anotações originais dos fundadores!</p>
-      <blockquote>"Eles não querem roubar nada... Carlão e Pietrão querem encontrar a mina de relíquias da serra!" — exclamou Amélia.</blockquote>
+      <p>Utilizando o notebook da viatura, o aluno de tecnologia <strong>Peter</strong> auxiliou o Policial Beredito a recuperar a gravação do circuito interno.</p>
+      <p>As imagens mostravam claramente <strong>Janeto</strong> abrindo o compartimento metálico sob o Banco 19 para retirar o relicário histórico de 1972!</p>
+      <blockquote>"Com este laudo e o vídeo, expedirei o mandado de prisão em flagrante por furtar o patrimônio da expedição de Bernadete!" — declarou o Policial Beredito.</blockquote>
     `,
     choices: [
       {
-        text: "Elaborar o Esquema do Cerco Perfeito (Plano Mestre).",
+        text: "Executar a Operação Policial de Flagrante com Beredito, João e Amélia!",
         target: "node04_plano_mestre",
-        addClue: "mapa_serra_lua",
-        addClue2: "plano_mestre_docs"
+        addClue: "mandado_beredito"
       }
     ]
   },
@@ -239,22 +239,22 @@ const NODES = {
     id: "node04_joao",
     chapter: "CAPÍTULO III",
     title: "Operação Isca de João Alegria",
-    time: "00:15 AM",
+    time: "00:17 AM",
     location: "📍 Pátio Central da Garagem",
-    camera: "CAM 03 &bull; PÁTIO CENTRAL",
-    avatars: ["João Alegria", "Carlão"],
+    camera: "CAM 03 &bull; PÁTIO",
+    avatars: ["João Alegria", "Janeto"],
     text: `
-      <p>João Alegria ajustou o apito nos dentes e surgiu subitamente diante de Carlão e Pietrão na penumbra!</p>
-      <blockquote>"Ei! Vocês dois aí! Querem carona pro presídio?" — provocou João, apitando forte e correndo em velocidade rumo à figueira!</blockquote>
-      <p>Irritado, Pietrão gritou: <em>"Pega ele! Esse moleque viu a gente!"</em>. A dupla partiu em perseguição direta!</p>
+      <p>João Alegria vestiu a jaqueta refletiva e apitou forte diante de Janeto no pátio!</p>
+      <blockquote>"Ei, Janeto! O Policial Beredito já tem suas digitais! Vem pegar o mapa se for capaz!" — provocou João, correndo em direção à figueira!</blockquote>
+      <p>Desesperado para não ser preso, Janeto correu atrás de João no escuro!</p>
     `,
     choices: [
       {
-        text: "Guiar a perseguição diretamente para a área da rede de Amélia.",
+        text: "Guiar Janeto direto para a área do buraco e rede de Amélia.",
         target: "node05_confronto"
       },
       {
-        text: "João tenta desviar para o galpão de ferramentas sem avisar o grupo.",
+        text: "Janeto tenta invadir a cabine do motorista Tony.",
         target: "node_loop_trigger"
       }
     ]
@@ -263,46 +263,40 @@ const NODES = {
   node04_amelia: {
     id: "node04_amelia",
     chapter: "CAPÍTULO III",
-    title: "A Engenhosidade de Amélia",
-    time: "00:16 AM",
-    location: "📍 Área da Figueira Centenária",
+    title: "Armadilha de Amélia e Louise",
+    time: "00:18 AM",
+    location: "📍 Figueira Centenária",
     camera: "CAM 06 &bull; FIGUEIRA",
-    avatars: ["Amélia", "Sr. Chico"],
+    avatars: ["Amélia", "Louise", "Chico"],
     text: `
-      <p>Com destreza incrível, Amélia e o Sr. Chico cavaram uma vala rasa sob a passagem estreita dos galhos, cobrindo-a com camuflagem de grama falsa.</p>
-      <p>Acima, a <strong>Rede de Caça Reforçada</strong> foi içada na roldana da árvore, pronta para ser liberada ao menor sinal.</p>
+      <p>Sob a supervisão de <strong>Louise</strong> no rádio de emergência, Amélia e Chico camuflaram o buraco na figueira e içaram a rede de caça.</p>
     `,
     choices: [
       {
-        text: "Esperar o apito de João Alegria para liberar a roldana da rede.",
+        text: "Sincronizar o sinal de apito de João com a roldana da rede.",
         target: "node05_confronto"
-      },
-      {
-        text: "Acionar a rede precocemente sem a isca posicionada.",
-        target: "node_ending2"
       }
     ]
   },
 
   node04_plano_mestre: {
     id: "node04_plano_mestre",
-    chapter: "CAPÍTULO MESTRE",
-    title: "O Cerco Sincronizado",
-    time: "00:18 AM",
-    location: "📍 Entorno do Ônibus 1972",
-    camera: "CAM MESTRE &bull; 1972",
-    avatars: ["Teny", "João Alegria", "Amélia", "Sr. Chico"],
+    chapter: "CAPÍTULO POLICIAL",
+    title: "O Cerco Perfeito de Beredito",
+    time: "00:20 AM",
+    location: "📍 Pátio da Figueira",
+    camera: "CAM MESTRE &bull; FLAGRANTE",
+    avatars: ["Policial Beredito", "Janeto", "João", "Amélia"],
     text: `
-      <p>Possuindo o <strong>Mapa da Serra da Lua</strong> e todas as evidências em mãos, a equipe atingiu a maestria tática total!</p>
-      <p>João atraiu Pietrão para a vala camuflada de Amélia, enquanto Teny e Chico cercaram Carlão com a exibição do mapa original.</p>
+      <p>Com o Mandado Policial assinado por Beredito, a isca de João e a armadilha de Amélia, a equipe cercou Janeto na figueira!</p>
     `,
     choices: [
       {
-        text: "Capturar a dupla na armadilha perfeita e recuperar o legado intacto! (Final 1)",
+        text: "Beredito efetua a Prisão Oficial em Flagrante de Janeto! (Final 1)",
         target: "node_ending1"
       },
       {
-        text: "Confrontar Carlão pacificamente com o Diário Secreto de 1972. (Final 5)",
+        text: "Permitir que a Professora Bernadete e Frederico ouçam a confissão de Janeto. (Final 5)",
         target: "node_ending5"
       }
     ]
@@ -310,29 +304,28 @@ const NODES = {
 
   node05_confronto: {
     id: "node05_confronto",
-    chapter: "CLÍMAX",
-    title: "O Momento Decisivo na Figueira",
-    time: "00:20 AM",
-    location: "📍 Sob os Galhos da Figueira",
+    chapter: "CLÍMAX DE 2005",
+    title: "O Flagrante Policial na Figueira",
+    time: "00:22 AM",
+    location: "📍 Sob a Figueira",
     camera: "CAM 06 &bull; FIGUEIRA",
-    avatars: ["João Alegria", "Amélia", "Pietrão", "Carlão"],
+    avatars: ["Policial Beredito", "Janeto", "Amélia", "João"],
     text: `
-      <p>Os passos pesados de Pietrão ecoaram sobre a relva. João Alegria deu um salto lateral preciso!</p>
-      <p>Pietrão pisou direto sobre a grama falsa e afundou na vala! No segundo seguinte, Amélia puxou a corda de trava e a <strong>Rede de Caça</strong> despencou dos galhos da figueira, envolvendo o invasor!</p>
-      <p>Carlão parou assustado a poucos passos de distância, hesitando entre lutar ou fugir para a serra!</p>
+      <p>Janeto correu cego de raiva atrás do apito de João Alegria e pisou direto na grama falsa de Amélia!</p>
+      <p>Ao afundar na vala, a rede despencou dos galhos e o Policial Beredito deu voz de prisão com a sirene ligada!</p>
     `,
     choices: [
       {
-        text: "⚡ [EXIGE REDE & APITO] Usar os holofotes de Chico para imobilizar Carlão também! (Final 1)",
+        text: "⚖️ [EXIGE MANDADO OU REDE] Policial Beredito encerra o caso de 2005 com prisão oficial! (Final 1)",
         target: "node_ending1",
-        reqClue: "rede_reforcada"
+        reqClue: "rede_amelia"
       },
       {
-        text: "Cercar Pietrão enquanto Carlão foge para o matagal da montanha. (Final 3)",
+        text: "Janeto tenta escapar pelos arbustos rumo à Serra da Lua. (Final 3)",
         target: "node_ending3"
       },
       {
-        text: "Tentar luta corporal desarmada na escuridão.",
+        text: "Janeto corre para a cabine e aciona o motor do 1972.",
         target: "node_loop_trigger"
       }
     ]
@@ -340,21 +333,20 @@ const NODES = {
 
   node_loop_trigger: {
     id: "node_loop_trigger",
-    chapter: "LAÇO TEMPORAL",
-    title: "O Eco do Relógio 00:00",
-    time: "00:22 AM",
-    location: "📍 Painel Digital do Ônibus 1972",
+    chapter: "LAÇO TEMPORAL 2005",
+    title: "O Eco do Relógio de 2005",
+    time: "00:25 AM",
+    location: "📍 Painel do Ônibus 1972",
     camera: "CAM 00 &bull; LOOP ANOMALY",
     avatars: ["Relógio Quântico 1972"],
     text: `
-      <p>Um erro de sincronia permitiu que Carlão girasse a chave mestra no painel do 1972. Ao ligar a ignição, o sistema vintage de relógio e ignição do ônibus emitiu um <strong>ressonante alarme cronológico</strong>!</p>
-      <p>Os faróis piscaram em ciano e o ponteiro do tempo começou a rodar para trás com velocidade vertiginosa!</p>
-      <blockquote>"O tempo tá voltando! Guardem as pistas!" — gritou a voz de Teny ecoando nas sombras.</blockquote>
+      <p>Na tentativa desesperada de fuga, Janeto girou a chave mestra no painel do 1972. O circuito quântico do ônibus vintage apitou forte!</p>
+      <p>O tempo retrocedeu para as 00:00 de 2005, mas todas as provas e o laudo do Policial Beredito continuam salvos no seu caderno!</p>
     `,
     isLoopReset: true,
     choices: [
       {
-        text: "🌀 Reiniciar o Loop às 00:00 (Conservando Evidências Coletadas)",
+        text: "🌀 Reiniciar o Loop de 2005 (Mantendo Evidências do Policial Beredito)",
         target: "node01"
       }
     ]
@@ -363,76 +355,75 @@ const NODES = {
   // ENDINGS
   node_ending1: {
     id: "node_ending1",
-    chapter: "DESFECHO",
-    title: "FINAL 1 — Plano Mestre Impecável",
-    time: "00:30 AM",
-    location: "📍 Garagem Municipal - Vitória",
-    camera: "CAM OK &bull; EXPOSIÇÃO",
-    avatars: ["Teny", "João", "Amélia", "Chico"],
+    chapter: "DESFECHO POLICIAL",
+    title: "FINAL 1 — Prisão Oficial de Janeto",
+    time: "00:35 AM",
+    location: "📍 Garagem Municipal - Prisão",
+    camera: "CAM OK &bull; PRISÃO 2005",
+    avatars: ["Policial Beredito", "Janeto", "Bernadete", "Tony"],
     endingId: "ending1",
     text: `
-      <p>🎉 <strong>VITÓRIA PERFEITA!</strong></p>
-      <p>Com a coordenação cirúrgica de João Alegria, Amélia, Sr. Chico e Teny, Carlão e Pietrão foram completamente neutralizados e contidos até a chegada da inspetoria!</p>
-      <p>O <strong>Mapa Secreto de 1972</strong> foi preservado, liberando a rota mais fascinante para a aula de campo na Serra da Lua. Toda a turma comemorou o triunfo do trabalho em equipe!</p>
+      <p>⚖️ <strong>VITÓRIA POLICIAL PERFEITA!</strong></p>
+      <p>O Policial Beredito algemou o culpado <strong>Janeto</strong> em flagrante na figueira!</p>
+      <p>Com o laudo do mecânico Edilias, o depoimento de Valdinete e o bilhete recolhido por Brinidite, o crime de 2005 foi totalmente desmantelado. A professora Bernadete, o motorista Tony e toda a turma embarcaram felizes no 1972 rumo à Serra da Lua!</p>
     `,
     choices: [
-      { text: "🔄 Jogar Novamente / Explorar Outros Caminhos", target: "node01", isRestart: true }
+      { text: "🔄 Jogar Novamente / Testar Outros Caminhos", target: "node01", isRestart: true }
     ]
   },
 
   node_ending2: {
     id: "node_ending2",
-    chapter: "DESFECHO",
-    title: "FINAL 2 — Alarme da Garagem",
-    time: "00:25 AM",
+    chapter: "DESFECHO PARCIAL",
+    title: "FINAL 2 — Fuga Prematura de Janeto",
+    time: "00:30 AM",
     location: "📍 Garagem Municipal",
-    camera: "CAM OK &bull; SEGURA",
-    avatars: ["Sr. Chico", "Teny"],
+    camera: "CAM OK &bull; BOLETIM",
+    avatars: ["Policial Beredito", "Chico"],
     endingId: "ending2",
     text: `
       <p>🚨 <strong>VITÓRIA PARCIAL!</strong></p>
-      <p>O acionamento precoce das luzes e alarmes colocou os invasores em fuga. O Ônibus 1972 ficou seguro para a viagem, porém o mistério do Banco 19 continuou oculto nas sombras.</p>
+      <p>Janeto conseguiu fugir antes do cerco policial de Beredito, mas deixou a caixa de ferramentas e o ônibus seguro para a viagem de Bernadete.</p>
     `,
     choices: [
-      { text: "🔄 Reiniciar Loop para Descobrir o Segredo Oculto", target: "node01", isRestart: true }
+      { text: "🔄 Reiniciar Loop de 2005 para Prender Janeto em Flagrante", target: "node01", isRestart: true }
     ]
   },
 
   node_ending3: {
     id: "node_ending3",
-    chapter: "DESFECHO",
-    title: "FINAL 3 — A Trilha da Serra da Lua",
-    time: "00:35 AM",
-    location: "📍 Entrada da Serra da Lua",
-    camera: "CAM 07 &bull; TRILHA",
-    avatars: ["Teny", "João Alegria"],
+    chapter: "DESFECHO DE AVENTURA",
+    title: "FINAL 3 — Perseguição na Serra da Lua",
+    time: "00:40 AM",
+    location: "📍 Estrada da Serra da Lua",
+    camera: "CAM 07 &bull; PERSEGUIÇÃO",
+    avatars: ["Policial Beredito", "Tony", "João Alegria"],
     endingId: "ending3",
     text: `
-      <p>⛰️ <strong>FINAL ABERTO DE AVENTURA!</strong></p>
-      <p>Pietrão foi detido na armadilha da figueira, mas Carlão conseguiu se embrenhar na mata da montanha levando parte das anotações.</p>
-      <p>Teny e os alunos decidem transformar a aula de campo em uma emocionante expedição investigativa na Serra da Lua!</p>
+      <p>⛰️ <strong>PERSEGUIÇÃO POLICIAL NA SERRA!</strong></p>
+      <p>Janeto escapou rumo às montanhas. O Policial Beredito entra no 1972 com o motorista Tony e os alunos para iniciar uma caçada policial na Serra da Lua!</p>
     `,
     choices: [
-      { text: "🔄 Tentar Novamente para Capturar Ambos", target: "node01", isRestart: true }
+      { text: "🔄 Tentar Novamente a Captura na Garagem", target: "node01", isRestart: true }
     ]
   },
 
   node_ending5: {
     id: "node_ending5",
     chapter: "DESFECHO SECCIONAL",
-    title: "FINAL 5 — A Sociedade do Ônibus 1972",
+    title: "FINAL 5 — Confissão de Janeto e Redenção",
     time: "01:00 AM",
-    location: "📍 Salão Principal de 1972",
-    camera: "CAM OK &bull; SOCIEDADE",
-    avatars: ["Teny", "Carlão", "Amélia"],
+    location: "📍 Salão do Ônibus 1972",
+    camera: "CAM OK &bull; REDENÇÃO",
+    avatars: ["Policial Beredito", "Janeto", "Bernadete", "Frederico"],
     endingId: "ending5",
     text: `
-      <p>🌟 <strong>DESFECHO LENDÁRIO E RECURSIVO!</strong></p>
-      <p>Ao exibir o Diário de Bordo e o Mapa de 1972, Teny descobriu a verdade: Carlão era filho do mecânico pioneiro de 1972, buscando provar as descobertas científicas de seu pai!</p>
-      <p>Em vez de conflito, o grupo firmou uma aliança histórica! Carlão juntou-se à viagem como guia especialista da Serra da Lua, revelando segredos incríveis aos alunos!</p>
+      <p>🌟 <strong>FINAL SECRETO DE REDENÇÃO!</strong></p>
+      <p>Confrontado por Beredito, Frederico e a professora Bernadete, Janeto chorou e confessou que tentava recuperar o diário de seu falecido avô, fundador do 1972.</p>
+      <p>Sensibilizado, o Policial Beredito autorizou que Janeto acompanhasse a expedição sob custódia policial, ajudando os alunos na Serra da Lua!</p>
     `,
     choices: [
-      { text: "🔄 Reiniciar Experiência Narrativa", target: "node01", isRestart: true }
+      { text: "🔄 Reiniciar Experiência Narrativa de 2005", target: "node01", isRestart: true }
     ]
   }
 };
