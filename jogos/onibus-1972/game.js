@@ -353,7 +353,7 @@ const NODES = {
     avatars: ["Policial Beredito"],
     text: `
       <p>Com as provas cruzadas e os dramas humanos compreendidos, o Policial Beredito expediu o mandado de prisão de Janeto, solicitando simultaneamente o encaminhamento social para a cirurgia de sua filha.</p>
-      <blockquote>"A lei será cumprida, mas a dignidade humana será preservada!" — afirmou Beredito.</blockquote>
+      <blockquote>"A lei será cumprida, mas a dignidade humana será preserved!" — afirmou Beredito.</blockquote>
     `,
     choices: [
       {
@@ -450,3 +450,527 @@ const NODES = {
     ]
   }
 };
+
+// Application State Management (GameEngine Class)
+class GameEngine {
+  constructor() {
+    this.state = {
+      loop: 1,
+      currentNodeId: "node01",
+      clues: new Set(),
+      visitedNodes: new Set(["node01"]),
+      unlockedEndings: new Set(),
+      soundEnabled: true,
+      showLoopFeedback: false
+    };
+
+    this.audioCtx = null;
+    this.init();
+  }
+
+  init() {
+    this.loadStorage();
+    this.bindEvents();
+    this.initParticles();
+    this.render();
+  }
+
+  loadStorage() {
+    try {
+      const saved = localStorage.getItem("onibus1972_state");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        this.state.loop = parsed.loop || 1;
+        this.state.currentNodeId = parsed.currentNodeId || "node01";
+        this.state.clues = new Set(parsed.clues || []);
+        this.state.visitedNodes = new Set(parsed.visitedNodes || ["node01"]);
+        this.state.unlockedEndings = new Set(parsed.unlockedEndings || []);
+        this.state.soundEnabled = parsed.soundEnabled !== undefined ? parsed.soundEnabled : true;
+      }
+    } catch (e) {
+      console.warn("Storage warning:", e);
+    }
+  }
+
+  saveStorage() {
+    try {
+      const data = {
+        loop: this.state.loop,
+        currentNodeId: this.state.currentNodeId,
+        clues: Array.from(this.state.clues),
+        visitedNodes: Array.from(this.state.visitedNodes),
+        unlockedEndings: Array.from(this.state.unlockedEndings),
+        soundEnabled: this.state.soundEnabled
+      };
+      localStorage.setItem("onibus1972_state", JSON.stringify(data));
+    } catch (e) {
+      console.warn("Save storage error:", e);
+    }
+  }
+
+  bindEvents() {
+    // Sound button
+    const btnSound = document.getElementById("btnSound");
+    if (btnSound) {
+      btnSound.addEventListener("click", () => {
+        this.state.soundEnabled = !this.state.soundEnabled;
+        const icon = document.getElementById("soundIcon");
+        if (icon) icon.textContent = this.state.soundEnabled ? "📻" : "🔇";
+        this.saveStorage();
+      });
+    }
+
+    // Modal Toggles
+    const btnGraph = document.getElementById("btnGraphToggle");
+    if (btnGraph) {
+      btnGraph.addEventListener("click", () => {
+        this.openModal("graphModal");
+        this.renderGraph();
+      });
+    }
+
+    const btnNotebook = document.getElementById("btnNotebookToggle");
+    if (btnNotebook) {
+      btnNotebook.addEventListener("click", () => {
+        this.openModal("notebookModal");
+        this.renderNotebook();
+      });
+    }
+
+    // Close Modal buttons
+    document.querySelectorAll("[data-close-modal]").forEach(btn => {
+      btn.addEventListener("click", () => this.closeAllModals());
+    });
+
+    document.querySelectorAll(".modal-backdrop").forEach(backdrop => {
+      backdrop.addEventListener("click", (e) => {
+        if (e.target === backdrop) this.closeAllModals();
+      });
+    });
+
+    // Modal Tabs
+    document.querySelectorAll(".tab-btn").forEach(tab => {
+      tab.addEventListener("click", (e) => {
+        const targetTab = e.target.getAttribute("data-tab");
+        document.querySelectorAll(".tab-btn").forEach(t => t.classList.remove("active"));
+        document.querySelectorAll(".tab-pane").forEach(p => p.classList.remove("active"));
+        e.target.classList.add("active");
+        const pane = document.getElementById(targetTab);
+        if (pane) pane.classList.add("active");
+      });
+    });
+
+    // Reset Progress
+    const btnReset = document.getElementById("btnResetProgress");
+    if (btnReset) {
+      btnReset.addEventListener("click", () => {
+        if (confirm("Tem certeza que deseja resetar todo o progresso do diário de bordo?")) {
+          localStorage.removeItem("onibus1972_state");
+          location.reload();
+        }
+      });
+    }
+
+    // Keyboard Shortcuts (1-9)
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") this.closeAllModals();
+      const num = parseInt(e.key, 10);
+      if (!isNaN(num) && num >= 1 && num <= 9) {
+        const buttons = document.querySelectorAll(".choice-btn");
+        if (buttons[num - 1] && !buttons[num - 1].disabled) {
+          buttons[num - 1].click();
+        }
+      }
+    });
+  }
+
+  // Web Audio Synth
+  playSound(type) {
+    if (!this.state.soundEnabled) return;
+    try {
+      if (!this.audioCtx) {
+        this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      const ctx = this.audioCtx;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      const now = ctx.currentTime;
+      if (type === "click") {
+        osc.frequency.setValueAtTime(440, now);
+        osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+        osc.start(now);
+        osc.stop(now + 0.08);
+      } else if (type === "loop") {
+        osc.type = "sawtooth";
+        osc.frequency.setValueAtTime(880, now);
+        osc.frequency.exponentialRampToValueAtTime(220, now + 0.5);
+        gain.gain.setValueAtTime(0.3, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+        osc.start(now);
+        osc.stop(now + 0.5);
+      } else if (type === "clue") {
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(523.25, now);
+        osc.frequency.setValueAtTime(659.25, now + 0.1);
+        osc.frequency.setValueAtTime(783.99, now + 0.2);
+        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+        osc.start(now);
+        osc.stop(now + 0.35);
+      }
+    } catch (e) {
+      console.warn("Audio synth warning:", e);
+    }
+  }
+
+  selectChoice(choice) {
+    this.playSound("click");
+
+    // Add clues if applicable
+    if (choice.addClue) {
+      this.state.clues.add(choice.addClue);
+      this.playSound("clue");
+    }
+    if (choice.addClue2) {
+      this.state.clues.add(choice.addClue2);
+    }
+
+    const targetNode = NODES[choice.target];
+    if (!targetNode) return;
+
+    // Check if target is a Loop Reset
+    if (targetNode.isLoopReset || choice.target === "node_loop_trigger") {
+      this.state.loop++;
+      this.state.showLoopFeedback = true;
+      this.state.currentNodeId = "node01";
+      this.playSound("loop");
+    } else {
+      this.state.currentNodeId = choice.target;
+      if (!choice.isRestart) {
+        this.state.showLoopFeedback = false;
+      }
+    }
+
+    // Record Visited
+    this.state.visitedNodes.add(this.state.currentNodeId);
+
+    // Record Ending if reached
+    if (targetNode.endingId) {
+      this.state.unlockedEndings.add(targetNode.endingId);
+    }
+
+    this.saveStorage();
+    this.render();
+
+    // Scroll to top of story
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  render() {
+    const node = NODES[this.state.currentNodeId] || NODES["node01"];
+
+    // Update Header Dashboard Widgets
+    const loopDisp = document.getElementById("loopDisplay");
+    if (loopDisp) loopDisp.textContent = `Loop #${this.state.loop}`;
+
+    const clockDisp = document.getElementById("clockTime");
+    if (clockDisp) clockDisp.textContent = node.time || "00:00";
+
+    const clueCnt = document.getElementById("clueCount");
+    if (clueCnt) clueCnt.textContent = this.state.clues.size;
+
+    const tabClueCnt = document.getElementById("tabClueCount");
+    if (tabClueCnt) tabClueCnt.textContent = this.state.clues.size;
+    
+    const unlockedCount = this.state.unlockedEndings.size;
+    const endDisp = document.getElementById("endingsDisplay");
+    if (endDisp) endDisp.textContent = `${unlockedCount} / 7`;
+
+    const tabEndCnt = document.getElementById("tabEndingCount");
+    if (tabEndCnt) tabEndCnt.textContent = `${unlockedCount}/7`;
+
+    const progressPct = Math.round((this.state.visitedNodes.size / Object.keys(NODES).length) * 100);
+    const pBar = document.getElementById("progressBar");
+    if (pBar) pBar.style.width = `${progressPct}%`;
+
+    const pPct = document.getElementById("progressPercent");
+    if (pPct) pPct.textContent = `${progressPct}% Esclarecido`;
+
+    // Render Scene Column Badges & SVG Illustration
+    const locBadge = document.getElementById("locationBadge");
+    if (locBadge) locBadge.textContent = node.location || "📍 Garagem Municipal";
+
+    const camBadge = document.getElementById("cameraBadge");
+    if (camBadge) camBadge.innerHTML = `${node.camera || 'REC &bull; CAM 04'}`;
+
+    const sTime = document.getElementById("sceneTimeBadge");
+    if (sTime) sTime.textContent = `🕒 ${node.time || '00:00'}`;
+
+    // Avatars
+    const avatarsContainer = document.getElementById("activeAvatars");
+    if (avatarsContainer) {
+      avatarsContainer.innerHTML = (node.avatars || [])
+        .map(av => `<span class="avatar-pill">${av}</span>`)
+        .join("");
+    }
+
+    // SVG / Real Image Illustration Generator
+    this.renderSceneSVG(node);
+
+    // Quick Inventory Tags
+    const quickInvTags = document.getElementById("quickInvTags");
+    if (quickInvTags) {
+      if (this.state.clues.size === 0) {
+        quickInvTags.innerHTML = `<em class="empty-inv-msg">Nenhuma pista coletada neste loop ainda.</em>`;
+      } else {
+        quickInvTags.innerHTML = Array.from(this.state.clues)
+          .map(id => {
+            const c = CLUES[id];
+            return c ? `<span class="clue-chip">${c.icon} ${c.title}</span>` : "";
+          })
+          .join("");
+      }
+    }
+
+    // Story Sheet
+    const chBadge = document.getElementById("chapterBadge");
+    if (chBadge) chBadge.textContent = node.chapter || "CAPÍTULO";
+
+    const nTitle = document.getElementById("nodeTitle");
+    if (nTitle) nTitle.textContent = node.title || "";
+
+    const nText = document.getElementById("nodeText");
+    if (nText) nText.innerHTML = node.text || "";
+
+    // Loop Feedback Banner
+    const loopBanner = document.getElementById("loopFeedback");
+    if (loopBanner) {
+      if (this.state.showLoopFeedback && node.id === "node01") {
+        loopBanner.classList.remove("hidden");
+      } else {
+        loopBanner.classList.add("hidden");
+      }
+    }
+
+    // Choices
+    const choicesList = document.getElementById("choicesList");
+    if (choicesList) {
+      choicesList.innerHTML = "";
+
+      (node.choices || []).forEach((c, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "choice-btn";
+        
+        let isReqMet = true;
+        let reqTagHtml = "";
+        if (c.reqClue) {
+          isReqMet = this.state.clues.has(c.reqClue);
+          const reqClueObj = CLUES[c.reqClue];
+          reqTagHtml = `<span class="choice-req-tag">${isReqMet ? '✔ Exige: ' : '🔒 Requer: '} ${reqClueObj ? reqClueObj.title : 'Pista'}</span>`;
+          if (isReqMet) btn.classList.add("has-req");
+        }
+
+        if (!isReqMet) btn.disabled = true;
+
+        btn.innerHTML = `
+          <span class="choice-key">[${idx + 1}]</span>
+          <span class="choice-text">${c.text}</span>
+          ${reqTagHtml}
+        `;
+
+        btn.addEventListener("click", () => this.selectChoice(c));
+        choicesList.appendChild(btn);
+      });
+    }
+  }
+
+  // Dynamic Graphic Illustration & Image Scene Renderer
+  renderSceneSVG(node) {
+    const container = document.getElementById("sceneIllustration");
+    if (!container) return;
+
+    let imageSrc = "assets/images/capa-onibus-1972.png";
+    let sceneLabel = "CAM 04 &bull; GARAGEM NOTURNA";
+
+    if (node.id.includes("trama1") || node.id.includes("banco19") || node.id.includes("ending4")) {
+      imageSrc = "assets/images/banco-secreto.png";
+      sceneLabel = "CAM 05 &bull; BAGAGEIRO DO 1972";
+    } else if (node.id.includes("trama4") || node.id.includes("confronto") || node.id.includes("flagrante") || node.id.includes("ending1")) {
+      imageSrc = "assets/images/armadilha-figueira.png";
+      sceneLabel = "CAM 06 &bull; FIGUEIRA CENTENÁRIA";
+    }
+
+    container.innerHTML = `
+      <div class="scene-img-wrapper" style="position: relative; width: 100%; height: 100%; overflow: hidden;">
+        <img src="${imageSrc}" alt="${node.title}" class="scene-real-img" style="
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: brightness(0.9) contrast(1.1);
+          animation: subtleZoom 12s ease-in-out infinite alternate;
+          transition: opacity 0.5s ease-in-out;
+        " />
+        <div class="scene-vignette" style="
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          background: radial-gradient(circle at center, transparent 40%, rgba(4, 8, 18, 0.85) 100%),
+                      linear-gradient(180deg, rgba(8, 13, 26, 0.4) 0%, transparent 30%, rgba(8, 13, 26, 0.8) 100%);
+          pointer-events: none;
+        "></div>
+        <div class="scene-scanlines" style="
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 3px);
+          pointer-events: none;
+          opacity: 0.7;
+        "></div>
+        <div class="hud-corner-tl" style="position: absolute; top: 12px; left: 12px; font-family: var(--font-mono); font-size: 0.65rem; color: var(--cyan-radio); letter-spacing: 0.1em;">
+          SYS.1972 // ONLINE
+        </div>
+        <div class="hud-corner-br" style="position: absolute; bottom: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; color: var(--amber-farol); letter-spacing: 0.1em;">
+          ${sceneLabel}
+        </div>
+      </div>
+    `;
+  }
+
+  // Render Clues & Endings Modal
+  renderNotebook() {
+    const cluesGrid = document.getElementById("cluesGrid");
+    if (cluesGrid) {
+      cluesGrid.innerHTML = Object.values(CLUES).map(clue => {
+        const isUnlocked = this.state.clues.has(clue.id);
+        return `
+          <div class="clue-card ${isUnlocked ? '' : 'locked'}">
+            <span class="clue-icon">${isUnlocked ? clue.icon : '🔒'}</span>
+            <h4 class="clue-title">${isUnlocked ? clue.title : 'Pista Bloqueada'}</h4>
+            <p class="clue-desc">${isUnlocked ? clue.desc : 'Explore as frentes de investigação para revelar este elemento.'}</p>
+          </div>
+        `;
+      }).join("");
+    }
+
+    const endingsList = document.getElementById("endingsList");
+    if (endingsList) {
+      endingsList.innerHTML = Object.values(ENDINGS).map(ending => {
+        const isUnlocked = this.state.unlockedEndings.has(ending.id);
+        return `
+          <div class="ending-card ${isUnlocked ? 'unlocked' : ''}">
+            <div class="ending-badge">${isUnlocked ? ending.badge : '❓'}</div>
+            <div class="ending-info">
+              <h4>${ending.code}: ${isUnlocked ? ending.title : 'Desfecho Oculto'}</h4>
+              <p>${isUnlocked ? ending.desc : 'Tome decisões nos laços temporais para desbloquear este final.'}</p>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+  }
+
+  // Render Recursive Node Graph
+  renderGraph() {
+    const container = document.getElementById("graphCanvasContainer");
+    if (!container) return;
+    const nodeList = Object.values(NODES);
+
+    let html = `<div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">`;
+    nodeList.forEach(n => {
+      const isVisited = this.state.visitedNodes.has(n.id);
+      const isCurrent = n.id === this.state.currentNodeId;
+      
+      html += `
+        <div style="
+          background: ${isCurrent ? 'rgba(251, 191, 36, 0.15)' : isVisited ? 'rgba(56, 189, 248, 0.1)' : 'rgba(255,255,255,0.03)'};
+          border: 1px solid ${isCurrent ? '#fbbf24' : isVisited ? '#38bdf8' : 'rgba(255,255,255,0.1)'};
+          padding: 0.85rem 1.25rem;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        ">
+          <div>
+            <strong style="color: ${isCurrent ? '#fbbf24' : isVisited ? '#f8fafc' : '#64748b'}; font-size: 0.95rem;">
+              ${n.title} (${n.chapter})
+            </strong>
+            <small style="display: block; color: #94a3b8; font-size: 0.75rem;">${n.location}</small>
+          </div>
+          <span style="
+            font-size: 0.75rem; 
+            font-family: var(--font-mono); 
+            padding: 3px 8px; 
+            border-radius: 4px;
+            background: ${isCurrent ? '#fbbf24' : isVisited ? '#38bdf8' : '#334155'};
+            color: ${isCurrent || isVisited ? '#000' : '#94a3b8'};
+            font-weight: 600;
+          ">
+            ${isCurrent ? '📍 NÓ ATUAL' : isVisited ? '✔ VISITADO' : '🔒 INEXPLORADO'}
+          </span>
+        </div>
+      `;
+    });
+    html += `</div>`;
+    container.innerHTML = html;
+  }
+
+  openModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) modal.classList.add("active");
+  }
+
+  closeAllModals() {
+    document.querySelectorAll(".modal-backdrop").forEach(m => m.classList.remove("active"));
+  }
+
+  // Particle background logic
+  initParticles() {
+    const canvas = document.getElementById("bgCanvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener("resize", () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const particles = Array.from({ length: 40 }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: Math.random() * 2 + 1,
+      dx: (Math.random() - 0.5) * 0.3,
+      dy: (Math.random() - 0.5) * 0.3,
+      alpha: Math.random() * 0.5 + 0.2
+    }));
+
+    function loop() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(251, 191, 36, ${p.alpha})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(loop);
+    }
+    loop();
+  }
+}
+
+// Global Instantiate on DOM Load
+document.addEventListener("DOMContentLoaded", () => {
+  window.gameEngine = new GameEngine();
+});
