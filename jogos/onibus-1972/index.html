@@ -51,120 +51,126 @@
       </div>
     </header>
 
-    <!-- MOLDURA DO PARA-BRISA DO ÔNIBUS 1972 (VISTA EXTERNA) -->
-    <section class="windshield-frame" id="sceneCard">
-      <div class="windshield-mirror-top">
-        <div class="mirror-oval">
-          <span class="mirror-text">RETROVISOR INTERNO &bull; SERRA DA LUA</span>
-        </div>
-      </div>
-
-      <div class="windshield-tags-top">
-        <div class="tag-location" id="locationBadge">📍 Garagem Municipal - Setor Norte</div>
-        <div class="tag-camera" id="cameraBadge">REC &bull; CAM 04</div>
-      </div>
-
-      <!-- Imagem Principal / Ilustração Vetorial -->
-      <div class="windshield-viewport" id="sceneIllustration">
-        <!-- Renderizado dinamicamente pelo game.js -->
-      </div>
-
-      <div class="windshield-tags-bottom">
-        <div class="avatars-bar" id="activeAvatars">
-          <!-- Avatares dos personagens -->
-        </div>
-        <div class="clock-gauge-amber" id="sceneTimeBadge">🕒 00:00 AM</div>
-      </div>
-    </section>
-
-    <!-- PAINEL DE INSTRUMENTOS ANALÓGICO DO ÔNIBUS -->
-    <section class="bus-instrument-cluster">
-      <!-- Orelha 1: Velocímetro / Odômetro (Loop) -->
-      <div class="analog-gauge loop-gauge">
-        <div class="gauge-dial">
-          <div class="needle" style="transform: rotate(45deg);"></div>
-          <span class="gauge-num">1972</span>
-        </div>
-        <div class="gauge-info">
-          <span class="gauge-label">ODÔMETRO DE LOOPS</span>
-          <strong id="loopDisplay" class="gauge-val">Loop #1</strong>
-        </div>
-      </div>
-
-      <!-- Orelha 2: Relógio Digital de Painel -->
-      <div class="analog-gauge clock-gauge">
-        <div class="nixie-clock">
-          <span id="clockTime">00:00</span> <small>AM</small>
-        </div>
-        <span class="gauge-label">HORÁRIO DA GARAGEM</span>
-      </div>
-
-      <!-- Orelha 3: Medidor de Nível de Investigação -->
-      <div class="analog-gauge progress-gauge">
-        <div class="progress-header">
-          <span class="gauge-label">ESCLARECIMENTO</span>
-          <span id="progressPercent" class="percent-val">0%</span>
-        </div>
-        <div class="gauge-bar-track">
-          <div id="progressBar" class="gauge-bar-fill" style="width: 0%;"></div>
-        </div>
-      </div>
-
-      <!-- Orelha 4: Finais Desbloqueados -->
-      <div class="analog-gauge endings-gauge">
-        <div class="trophy-icon">🏆</div>
-        <div class="gauge-info">
-          <span class="gauge-label">FINAIS DESBLOQUEADOS</span>
-          <strong id="endingsDisplay" class="gauge-val">0 / 5</strong>
-        </div>
-      </div>
-    </section>
-
-    <!-- CORPO PRINCIPAL: PRANCHETA DO MOTORISTA + PAINEL DE MARCHAS -->
-    <main class="driver-desk-grid" id="mainNarrative">
-      <!-- PRANCHETA DE PAPEL VINTAGE (HISTÓRIA) -->
-      <article class="clipboard-sheet">
-        <div class="clipboard-clip"></div>
-        
-        <div class="clipboard-header">
-          <span id="chapterBadge" class="stamped-chapter">PRÓLOGO</span>
-          <h2 id="nodeTitle" class="journal-title">O Alerta das 00:00</h2>
-        </div>
-
-        <div id="nodeText" class="journal-body">
-          <!-- Texto da história injetado pelo JS -->
-        </div>
-
-        <div id="loopFeedback" class="loop-stamp-banner hidden">
-          <div class="stamp-icon">🔄</div>
-          <div class="stamp-text">
-            <strong>REINÍCIO CRONOLÓGICO: 00:00 AM</strong>
-            <p>Memórias e pistas conservadas no Diário de Bordo!</p>
+    <!-- MAIN COCKPIT DASHBOARD GRID (SINGLE SCREEN VIEWPORT) -->
+    <main class="cockpit-single-viewport" id="mainNarrative">
+      <!-- LEFT COLUMN: WINDSHIELD IMAGE + INSTRUMENT GAUGES -->
+      <div class="left-cockpit-column">
+        <!-- MOLDURA DO PARA-BRISA DO ÔNIBUS 1972 (VISTA EXTERNA) -->
+        <section class="windshield-frame" id="sceneCard">
+          <div class="windshield-mirror-top">
+            <div class="mirror-oval">
+              <span class="mirror-text">RETROVISOR INTERNO &bull; SERRA DA LUA</span>
+            </div>
           </div>
-        </div>
-      </article>
 
-      <!-- PAINEL DE ALAVANCAS E OPÇÕES TÁTICAS -->
-      <aside class="tactical-switches-panel">
-        <div class="switches-header">
-          <h3>⚙️ PAINEL DE MARCHAS & COMANDOS</h3>
-          <small>Pressione a tecla [1, 2, 3...] correspondente</small>
-        </div>
-
-        <div id="choicesList" class="bus-switches-list">
-          <!-- Botões de escolha injetados aqui -->
-        </div>
-
-        <!-- Gaveta de Evidências Rápida no Painel -->
-        <div class="clues-dashboard-drawer">
-          <div class="drawer-title">
-            <span>EVIDÊNCIAS NO PORTA-LUVAS</span>
+          <div class="windshield-tags-top">
+            <div class="tag-location" id="locationBadge">📍 Garagem Municipal - Setor Norte</div>
+            <div class="tag-camera" id="cameraBadge">REC &bull; CAM 04</div>
           </div>
-          <div class="clues-tag-box" id="quickInvTags">
-            <em class="empty-inv-msg">Nenhuma pista coletada neste loop ainda.</em>
+
+          <!-- Imagem Principal / Ilustração Vetorial -->
+          <div class="windshield-viewport" id="sceneIllustration">
+            <!-- Renderizado dinamicamente pelo game.js -->
           </div>
-        </div>
-      </aside>
+
+          <div class="windshield-tags-bottom">
+            <div class="avatars-bar" id="activeAvatars">
+              <!-- Avatares dos personagens -->
+            </div>
+            <div class="clock-gauge-amber" id="sceneTimeBadge">🕒 00:00 AM</div>
+          </div>
+        </section>
+
+        <!-- PAINEL DE INSTRUMENTOS ANALÓGICO DO ÔNIBUS -->
+        <section class="bus-instrument-cluster">
+          <!-- Orelha 1: Velocímetro / Odômetro (Loop) -->
+          <div class="analog-gauge loop-gauge">
+            <div class="gauge-dial">
+              <div class="needle" style="transform: rotate(45deg);"></div>
+              <span class="gauge-num">1972</span>
+            </div>
+            <div class="gauge-info">
+              <span class="gauge-label">ODÔMETRO LOOPS</span>
+              <strong id="loopDisplay" class="gauge-val">Loop #1</strong>
+            </div>
+          </div>
+
+          <!-- Orelha 2: Relógio Digital de Painel -->
+          <div class="analog-gauge clock-gauge">
+            <div class="nixie-clock">
+              <span id="clockTime">00:00</span> <small>AM</small>
+            </div>
+            <span class="gauge-label">HORÁRIO GARAGEM</span>
+          </div>
+
+          <!-- Orelha 3: Medidor de Nível de Investigação -->
+          <div class="analog-gauge progress-gauge">
+            <div class="progress-header">
+              <span class="gauge-label">ESCLARECIMENTO</span>
+              <span id="progressPercent" class="percent-val">0%</span>
+            </div>
+            <div class="gauge-bar-track">
+              <div id="progressBar" class="gauge-bar-fill" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Orelha 4: Finais Desbloqueados -->
+          <div class="analog-gauge endings-gauge">
+            <div class="trophy-icon">🏆</div>
+            <div class="gauge-info">
+              <span class="gauge-label">FINAIS DESBLOQUEADOS</span>
+              <strong id="endingsDisplay" class="gauge-val">0 / 7</strong>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT COLUMN: STORY SHEET + COMMAND SWITCHES -->
+      <div class="right-cockpit-column">
+        <!-- PRANCHETA DO INVESTIGADOR (HISTÓRIA) -->
+        <article class="clipboard-sheet">
+          <div class="clipboard-clip"></div>
+          
+          <div class="clipboard-header">
+            <span id="chapterBadge" class="stamped-chapter">PRÓLOGO</span>
+            <h2 id="nodeTitle" class="journal-title">O Alerta das 00:00</h2>
+          </div>
+
+          <div id="nodeText" class="journal-body">
+            <!-- Texto da história injetado pelo JS -->
+          </div>
+
+          <div id="loopFeedback" class="loop-stamp-banner hidden">
+            <div class="stamp-icon">🔄</div>
+            <div class="stamp-text">
+              <strong>REINÍCIO CRONOLÓGICO: 00:00 AM</strong>
+              <p>Memórias e pistas conservadas no Diário de Bordo!</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- PAINEL DE ALAVANCAS E OPÇÕES TÁTICAS -->
+        <aside class="tactical-switches-panel">
+          <div class="switches-header">
+            <h3>⚙️ PAINEL DE MARCHAS & COMANDOS</h3>
+            <small>Pressione a tecla [1, 2, 3...] correspondente</small>
+          </div>
+
+          <div id="choicesList" class="bus-switches-list">
+            <!-- Botões de escolha injetados aqui -->
+          </div>
+
+          <!-- Gaveta de Evidências Rápida no Painel -->
+          <div class="clues-dashboard-drawer">
+            <div class="drawer-title">
+              <span>EVIDÊNCIAS NO PORTA-LUVAS</span>
+            </div>
+            <div class="clues-tag-box" id="quickInvTags">
+              <em class="empty-inv-msg">Nenhuma pista coletada neste loop ainda.</em>
+            </div>
+          </div>
+        </aside>
+      </div>
     </main>
 
     <!-- MODAL: MAPA DE NÓS (GRAFO RECURSIVO) -->
