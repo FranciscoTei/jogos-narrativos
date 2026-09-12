@@ -1,41 +1,39 @@
-/* ========================================================
-   ÔNIBUS 1972 — THEATER COCKPIT DESIGN SYSTEM (NEW LAYOUT)
-   ======================================================== */
+/* ==========================================================
+   ÔNIBUS 1972 — PAINEL DO MOTORISTA & DIÁRIO DE BORDO (CSS)
+   ========================================================== */
 
 :root {
-  --bg-obsidian: #030712;
-  --bg-dark-deck: rgba(11, 19, 41, 0.85);
-  --bg-glass-card: rgba(15, 23, 42, 0.75);
-  --bg-glass-hover: rgba(30, 41, 59, 0.9);
+  --bg-dark-depot: #060a12;
+  --bg-dashboard: #0e1726;
+  --bg-clipboard: #fefce8;
   
-  --cyan-neon: #00f2fe;
-  --cyan-glow: rgba(0, 242, 254, 0.35);
-  --gold-headlight: #fbbf24;
-  --gold-glow: rgba(251, 191, 36, 0.35);
-  --purple-loop: #a855f7;
-  --purple-glow: rgba(168, 85, 247, 0.35);
-  --emerald-success: #10b981;
-  --crimson-alert: #ef4444;
+  --amber-farol: #fbbf24;
+  --amber-glow: rgba(251, 191, 36, 0.35);
+  --cyan-radio: #38bdf8;
+  --cyan-glow: rgba(56, 189, 248, 0.35);
+  --purple-loop: #c084fc;
+  --purple-glow: rgba(192, 132, 252, 0.35);
+  --emerald-gauge: #34d399;
+  --crimson-alert: #f87171;
 
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-dark-paper: #1e293b;
+  --text-light-dash: #f8fafc;
+  --text-muted-dash: #94a3b8;
 
-  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-typewriter: 'Special Elite', cursive, monospace;
   --font-title: 'Cinzel', serif;
+  --font-sans: 'Outfit', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 24px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
 
-  --shadow-neon: 0 0 25px rgba(0, 242, 254, 0.2);
-  --shadow-gold: 0 0 25px rgba(251, 191, 36, 0.2);
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-dashboard: 0 10px 40px rgba(0, 0, 0, 0.6);
+  --shadow-amber: 0 0 20px rgba(251, 191, 36, 0.25);
+  --transition-fast: 0.2s ease;
 }
 
-/* Reset & Global Canvas */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -45,8 +43,8 @@
 html, body {
   width: 100%;
   min-height: 100vh;
-  background-color: var(--bg-obsidian);
-  color: var(--text-primary);
+  background-color: var(--bg-dark-depot);
+  color: var(--text-light-dash);
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.6;
@@ -61,14 +59,13 @@ html, body {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.45;
+  opacity: 0.5;
 }
 
-/* COCKPIT WRAPPER */
-.cockpit-wrapper {
+.bus-cockpit-shell {
   position: relative;
   z-index: 1;
-  max-width: 1400px;
+  max-width: 1350px;
   margin: 0 auto;
   padding: 1.25rem 1.5rem 3rem 1.5rem;
   display: flex;
@@ -76,192 +73,194 @@ html, body {
   gap: 1.5rem;
 }
 
-/* 1. TOP GLOWING NAVBAR */
-.topbar-cockpit {
+/* 1. BUS TOPBAR */
+.bus-topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.75rem;
-  background: var(--bg-dark-deck);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 242, 254, 0.25);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-neon);
+  padding: 0.9rem 1.5rem;
+  background: rgba(14, 23, 38, 0.9);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-amber);
 }
 
 .brand-link {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.75rem;
   text-decoration: none;
-  color: var(--text-primary);
+  color: var(--text-light-dash);
 }
 
-.bus-badge-neon {
-  width: 48px;
-  height: 48px;
-  background: linear-gradient(135deg, var(--gold-headlight), #d97706);
-  border-radius: var(--radius-md);
+.bus-badge-vintage {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--amber-farol), #b45309);
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #000;
   font-family: var(--font-mono);
-  font-weight: 800;
-  font-size: 0.95rem;
-  box-shadow: 0 0 15px var(--gold-glow);
+  font-weight: 900;
+  font-size: 0.9rem;
+  box-shadow: 0 0 12px var(--amber-glow);
 }
 
 .brand-info strong {
   display: block;
   font-size: 0.8rem;
   letter-spacing: 0.12em;
-  color: var(--cyan-neon);
+  color: var(--amber-farol);
 }
 
 .brand-info small {
   font-size: 0.75rem;
-  color: var(--text-secondary);
+  color: var(--text-muted-dash);
 }
 
 .topbar-center {
   text-align: center;
 }
 
-.game-hero-title {
+.bus-title-diegetic {
   font-family: var(--font-title);
-  font-size: 1.9rem;
+  font-size: 1.75rem;
   font-weight: 900;
   letter-spacing: 0.15em;
-  color: var(--gold-headlight);
-  text-shadow: 0 0 20px var(--gold-glow);
+  color: var(--amber-farol);
+  text-shadow: 0 0 15px var(--amber-glow);
 }
 
-.sub-badge-neon {
+.sub-badge-diegetic {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   letter-spacing: 0.15em;
   font-family: var(--font-mono);
-  color: var(--cyan-neon);
-  background: rgba(0, 242, 254, 0.1);
-  padding: 3px 10px;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 242, 254, 0.35);
+  color: var(--cyan-radio);
+  background: rgba(56, 189, 248, 0.12);
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
 .topbar-right {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
-.cockpit-btn {
-  background: rgba(15, 23, 42, 0.8);
+.dash-btn {
+  background: rgba(30, 41, 59, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  color: var(--text-primary);
-  padding: 0.6rem 1.1rem;
-  border-radius: var(--radius-md);
+  color: var(--text-light-dash);
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-sm);
   font-family: var(--font-sans);
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.4rem;
   transition: all var(--transition-fast);
 }
 
-.cockpit-btn:hover {
-  transform: translateY(-2px);
+.dash-btn:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: var(--cyan-radio);
+  color: var(--cyan-radio);
 }
 
-.cockpit-btn.glow-cyan:hover {
-  border-color: var(--cyan-neon);
-  box-shadow: 0 0 15px var(--cyan-glow);
-  color: var(--cyan-neon);
+.dash-btn.gold-btn {
+  border-color: var(--amber-farol);
 }
 
-.cockpit-btn.glow-gold:hover {
-  border-color: var(--gold-headlight);
-  box-shadow: 0 0 15px var(--gold-glow);
-  color: var(--gold-headlight);
+.dash-btn.gold-btn:hover {
+  background: rgba(251, 191, 36, 0.2);
+  color: var(--amber-farol);
 }
 
-/* 2. WIDESCREEN CINEMATIC THEATER STAGE */
-.theater-stage {
+/* 2. MOLDURA DO PARA-BRISA DO ÔNIBUS 1972 */
+.windshield-frame {
   position: relative;
   width: 100%;
-  height: 380px;
-  background: #000;
+  height: 360px;
+  background: #02040a;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(0, 242, 254, 0.3);
+  border: 4px solid #1e293b;
   overflow: hidden;
-  box-shadow: 0 0 35px rgba(0, 242, 254, 0.15);
+  box-shadow: var(--shadow-dashboard);
 }
 
-.theater-overlay-top {
+.windshield-mirror-top {
   position: absolute;
-  top: 1rem;
-  left: 1.25rem;
-  right: 1.25rem;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  pointer-events: none;
+}
+
+.mirror-oval {
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid var(--amber-farol);
+  padding: 4px 16px;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+}
+
+.mirror-text {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--amber-farol);
+  letter-spacing: 0.1em;
+}
+
+.windshield-tags-top {
+  position: absolute;
+  top: 0.85rem;
+  left: 1rem;
+  right: 1rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   z-index: 10;
   pointer-events: none;
 }
 
-.location-tag-neon {
-  background: rgba(3, 7, 18, 0.85);
-  border: 1px solid var(--cyan-neon);
-  color: var(--cyan-neon);
-  font-size: 0.75rem;
+.tag-location {
+  background: rgba(6, 10, 18, 0.85);
+  border: 1px solid var(--cyan-radio);
+  color: var(--cyan-radio);
   font-family: var(--font-mono);
-  padding: 4px 12px;
-  border-radius: 14px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 10px var(--cyan-glow);
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 10px;
 }
 
-.camera-tag-red {
-  background: rgba(239, 68, 68, 0.25);
+.tag-camera {
+  background: rgba(248, 113, 113, 0.2);
   border: 1px solid var(--crimson-alert);
   color: var(--crimson-alert);
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  padding: 4px 10px;
-  border-radius: 6px;
-  animation: pulse-alert 2s infinite;
+  padding: 3px 8px;
+  border-radius: 4px;
 }
 
-@keyframes pulse-alert {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-.theater-viewport {
+.windshield-viewport {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-.scene-real-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: slowPan 15s ease-in-out infinite alternate;
-}
-
-@keyframes slowPan {
-  0% { transform: scale(1) translate(0, 0); }
-  100% { transform: scale(1.08) translate(-10px, -5px); }
-}
-
-.theater-overlay-bottom {
+.windshield-tags-bottom {
   position: absolute;
-  bottom: 1rem;
-  left: 1.25rem;
-  right: 1.25rem;
+  bottom: 0.85rem;
+  left: 1rem;
+  right: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -269,83 +268,95 @@ html, body {
   pointer-events: none;
 }
 
-.avatars-deck {
+.avatars-bar {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .avatar-pill {
-  background: rgba(3, 7, 18, 0.85);
-  border: 1px solid var(--gold-headlight);
-  color: var(--gold-headlight);
+  background: rgba(6, 10, 18, 0.9);
+  border: 1px solid var(--amber-farol);
+  color: var(--amber-farol);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.clock-gauge-amber {
+  background: rgba(6, 10, 18, 0.9);
+  border: 1px solid var(--amber-farol);
+  color: var(--amber-farol);
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 14px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 0 10px var(--gold-glow);
+  padding: 3px 10px;
+  border-radius: 4px;
 }
 
-.clock-badge-cyan {
-  background: rgba(3, 7, 18, 0.85);
-  border: 1px solid rgba(0, 242, 254, 0.4);
-  color: var(--cyan-neon);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 6px;
-}
-
-/* 3. INSTRUMENT PANEL GAUGES */
-.instrument-panel {
+/* 3. INSTRUMENT CLUSTER ANALÓGICO */
+.bus-instrument-cluster {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
 }
 
-.gauge-card {
-  background: var(--bg-dark-deck);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 242, 254, 0.2);
+.analog-gauge {
+  background: rgba(14, 23, 38, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(251, 191, 36, 0.25);
   border-radius: var(--radius-md);
-  padding: 1.1rem 1.25rem;
+  padding: 1rem 1.2rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  box-shadow: var(--shadow-neon);
+  gap: 0.85rem;
+  box-shadow: var(--shadow-amber);
 }
 
-.gauge-icon {
-  font-size: 1.8rem;
+.gauge-dial {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #02040a;
+  border: 2px solid var(--purple-loop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-.gauge-title {
+.gauge-num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--purple-loop);
+  font-weight: 800;
+}
+
+.gauge-label {
   display: block;
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  color: var(--text-muted-dash);
   text-transform: uppercase;
 }
 
-.gauge-value {
-  font-size: 1.35rem;
+.gauge-val {
+  font-size: 1.3rem;
   font-weight: 800;
-  color: var(--gold-headlight);
+  color: var(--amber-farol);
   font-family: var(--font-mono);
 }
 
-.loop-gauge .gauge-value {
+.loop-gauge .gauge-val {
   color: var(--purple-loop);
-  text-shadow: 0 0 12px var(--purple-glow);
 }
 
-.digital-clock {
+.nixie-clock {
   font-family: var(--font-mono);
   font-size: 1.35rem;
   font-weight: 800;
-  color: var(--cyan-neon);
+  color: var(--cyan-radio);
   text-shadow: 0 0 10px var(--cyan-glow);
 }
 
@@ -353,23 +364,23 @@ html, body {
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
 }
 
-.gauge-header {
+.progress-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.gauge-percent {
+.percent-val {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--emerald-success);
+  color: var(--emerald-gauge);
 }
 
-.progress-bar-wrap {
+.gauge-bar-track {
   width: 100%;
   height: 8px;
   background: rgba(255, 255, 255, 0.08);
@@ -377,110 +388,116 @@ html, body {
   overflow: hidden;
 }
 
-.progress-bar-fill {
+.gauge-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--cyan-neon), var(--emerald-success));
-  box-shadow: 0 0 10px var(--cyan-glow);
+  background: linear-gradient(90deg, var(--cyan-radio), var(--emerald-gauge));
   transition: width 0.5s ease;
 }
 
-/* 4. TWO-COLUMN COMMAND CENTER */
-.command-center {
+/* 4. DRIVER DESK GRID: PRANCHETA DO MOTORISTA + PAINEL DE MARCHAS */
+.driver-desk-grid {
   display: grid;
   grid-template-columns: 1fr 480px;
   gap: 1.5rem;
   align-items: start;
 }
 
-/* STORY DECK */
-.story-deck {
-  background: var(--bg-dark-deck);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 242, 254, 0.25);
-  border-radius: var(--radius-lg);
-  padding: 2.25rem;
-  box-shadow: var(--shadow-neon);
+/* PRANCHETA DE PAPEL VINTAGE (STORY SHEET) */
+.clipboard-sheet {
+  position: relative;
+  background: var(--bg-clipboard);
+  color: var(--text-dark-paper);
+  border-radius: var(--radius-md);
+  padding: 2.5rem 2.25rem 2rem 2.25rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8);
+  border-top: 12px solid #334155;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
-.chapter-tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  color: var(--cyan-neon);
+.clipboard-clip {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 24px;
+  background: linear-gradient(180deg, #94a3b8, #475569);
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.stamped-chapter {
+  font-family: var(--font-typewriter);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: #b45309;
+  font-weight: 700;
   text-transform: uppercase;
   display: block;
-  margin-bottom: 0.35rem;
 }
 
-.node-title-main {
-  font-family: var(--font-title);
-  font-size: 1.8rem;
-  color: var(--text-primary);
+.journal-title {
+  font-family: var(--font-typewriter);
+  font-size: 1.7rem;
+  color: #0f172a;
   line-height: 1.25;
 }
 
-.story-content-body {
+.journal-body {
   font-size: 1.08rem;
   line-height: 1.8;
-  color: #cbd5e1;
+  color: #1e293b;
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1rem;
 }
 
-.story-content-body p strong {
-  color: var(--gold-headlight);
+.journal-body p strong {
+  color: #b45309;
 }
 
-.story-content-body blockquote {
-  border-left: 4px solid var(--cyan-neon);
-  background: rgba(0, 242, 254, 0.08);
-  padding: 0.85rem 1.2rem;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-style: italic;
-  color: var(--text-primary);
+.journal-body blockquote {
+  border-left: 4px solid #0284c7;
+  background: rgba(2, 132, 199, 0.08);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-typewriter);
+  font-size: 1rem;
+  color: #0f172a;
 }
 
-.loop-banner-pulse {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(0, 242, 254, 0.15));
-  border: 1px solid var(--purple-loop);
-  border-radius: var(--radius-md);
-  padding: 1.1rem 1.25rem;
+.loop-stamp-banner {
+  background: #fef2f2;
+  border: 2px stroke #ef4444;
+  border-radius: var(--radius-sm);
+  padding: 1rem;
   display: flex;
   align-items: center;
-  gap: 1.1rem;
-  box-shadow: 0 0 20px var(--purple-glow);
+  gap: 1rem;
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.15);
 }
 
-.loop-banner-pulse.hidden {
+.loop-stamp-banner.hidden {
   display: none;
 }
 
-.loop-banner-icon {
-  font-size: 2.2rem;
-  animation: spinLoop 10s linear infinite;
+.stamp-icon {
+  font-size: 2rem;
 }
 
-@keyframes spinLoop {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.stamp-text strong {
+  color: #dc2626;
+  font-family: var(--font-typewriter);
 }
 
-.loop-banner-text strong {
-  color: var(--purple-loop);
-  font-size: 1rem;
-}
-
-.loop-banner-text p {
+.stamp-text p {
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  color: #475569;
 }
 
-/* ACTION DECK (RIGHT) */
-.action-deck {
+/* PAINEL DE ALAVANCAS E OPÇÕES TÁTICAS (RIGHT) */
+.tactical-switches-panel {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -488,77 +505,74 @@ html, body {
   top: 1.5rem;
 }
 
-.action-card-header h3 {
+.switches-header h3 {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   letter-spacing: 0.15em;
-  color: var(--gold-headlight);
+  color: var(--amber-farol);
   text-transform: uppercase;
 }
 
-.action-card-header small {
+.switches-header small {
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: var(--text-muted-dash);
 }
 
-.choices-deck-list {
+.bus-switches-list {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
 }
 
 .choice-btn {
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(0, 242, 254, 0.3);
-  color: var(--text-primary);
+  background: rgba(14, 23, 38, 0.95);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  color: var(--text-light-dash);
   padding: 1.1rem 1.35rem;
   border-radius: var(--radius-md);
   text-align: left;
   font-family: var(--font-sans);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 1rem;
   transition: all var(--transition-fast);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .choice-btn:hover:not(:disabled) {
-  background: rgba(0, 242, 254, 0.18);
-  border-color: var(--cyan-neon);
-  transform: translateX(6px) translateY(-2px);
-  box-shadow: 0 0 20px var(--cyan-glow);
+  background: rgba(251, 191, 36, 0.18);
+  border-color: var(--amber-farol);
+  transform: translateX(6px);
+  box-shadow: var(--shadow-amber);
 }
 
 .choice-btn.has-req {
-  border-color: var(--gold-headlight);
-  background: rgba(251, 191, 36, 0.1);
+  border-color: var(--cyan-radio);
+  background: rgba(56, 189, 248, 0.1);
 }
 
 .choice-btn.has-req:hover:not(:disabled) {
-  background: rgba(251, 191, 36, 0.25);
-  box-shadow: 0 0 20px var(--gold-glow);
+  background: rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 20px var(--cyan-glow);
 }
 
 .choice-btn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
-  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .choice-key {
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid var(--cyan-neon);
-  color: var(--cyan-neon);
+  background: #000;
+  border: 1px solid var(--amber-farol);
+  color: var(--amber-farol);
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 800;
   padding: 3px 8px;
-  border-radius: 6px;
+  border-radius: 4px;
   flex-shrink: 0;
 }
 
@@ -569,29 +583,28 @@ html, body {
 .choice-req-tag {
   font-size: 0.72rem;
   font-family: var(--font-mono);
-  color: var(--gold-headlight);
-  background: rgba(251, 191, 36, 0.18);
-  padding: 3px 9px;
-  border-radius: 10px;
-  flex-shrink: 0;
+  color: var(--cyan-radio);
+  background: rgba(56, 189, 248, 0.15);
+  padding: 3px 8px;
+  border-radius: 8px;
 }
 
-/* Quick Inventory */
-.inventory-quick-panel {
-  background: var(--bg-dark-deck);
-  border: 1px solid rgba(0, 242, 254, 0.2);
+/* PORTA-LUVAS DE EVIDÊNCIAS */
+.clues-dashboard-drawer {
+  background: rgba(14, 23, 38, 0.9);
+  border: 1px solid rgba(251, 191, 36, 0.25);
   border-radius: var(--radius-md);
   padding: 1rem 1.25rem;
 }
 
-.inv-header span {
+.drawer-title span {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
-  color: var(--text-muted);
+  color: var(--text-muted-dash);
 }
 
-.inv-chips-container {
+.clues-tag-box {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -600,22 +613,21 @@ html, body {
 
 .empty-inv-msg {
   font-size: 0.82rem;
-  color: var(--text-muted);
+  color: var(--text-muted-dash);
   font-style: italic;
 }
 
 .clue-chip {
   background: rgba(251, 191, 36, 0.15);
-  border: 1px solid var(--gold-headlight);
-  color: var(--gold-headlight);
+  border: 1px solid var(--amber-farol);
+  color: var(--amber-farol);
   font-size: 0.78rem;
   font-weight: 600;
   padding: 4px 12px;
-  border-radius: 14px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  box-shadow: 0 0 10px var(--gold-glow);
+  gap: 0.35rem;
 }
 
 /* MODALS */
@@ -625,7 +637,7 @@ html, body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(3, 7, 18, 0.9);
+  background: rgba(6, 10, 18, 0.9);
   backdrop-filter: blur(15px);
   z-index: 100;
   display: flex;
@@ -643,15 +655,15 @@ html, body {
 }
 
 .modal-card {
-  background: #0b1329;
-  border: 1px solid var(--cyan-neon);
+  background: #0e1726;
+  border: 1px solid var(--amber-farol);
   border-radius: var(--radius-lg);
   width: 100%;
   max-width: 680px;
   max-height: 85vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 50px rgba(0, 242, 254, 0.3);
+  box-shadow: 0 0 40px rgba(251, 191, 36, 0.2);
   overflow: hidden;
 }
 
@@ -661,8 +673,8 @@ html, body {
 
 .modal-header {
   padding: 1.25rem 1.75rem;
-  background: rgba(15, 23, 42, 0.9);
-  border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+  background: rgba(30, 41, 59, 0.9);
+  border-bottom: 1px solid rgba(251, 191, 36, 0.2);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -671,13 +683,13 @@ html, body {
 .modal-header h3 {
   font-family: var(--font-title);
   font-size: 1.25rem;
-  color: var(--gold-headlight);
+  color: var(--amber-farol);
 }
 
 .modal-close {
   background: none;
   border: none;
-  color: var(--text-secondary);
+  color: var(--text-muted-dash);
   font-size: 1.8rem;
   cursor: pointer;
 }
@@ -695,18 +707,18 @@ html, body {
 }
 
 /* FOOTER */
-.cockpit-footer {
+.bus-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--text-muted-dash);
 }
 
-.cockpit-footer a {
-  color: var(--cyan-neon);
+.bus-footer a {
+  color: var(--amber-farol);
   text-decoration: none;
 }
 
@@ -721,21 +733,21 @@ html, body {
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .command-center {
+  .driver-desk-grid {
     grid-template-columns: 1fr;
   }
-  .instrument-panel {
+  .bus-instrument-cluster {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
-  .topbar-cockpit {
+  .bus-topbar {
     flex-direction: column;
     gap: 0.85rem;
     align-items: flex-start;
   }
-  .instrument-panel {
+  .bus-instrument-cluster {
     grid-template-columns: 1fr;
   }
 }
