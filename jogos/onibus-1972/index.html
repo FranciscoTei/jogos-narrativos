@@ -3,151 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0a111e">
-  <meta name="description" content="Ônibus 1972 - Um jogo narrativo recursivo com laços temporais, investigações e armadilhas noturnas na Serra da Lua.">
-  <title>Ônibus 1972 — Jogo Narrativo Recursivo</title>
+  <meta name="theme-color" content="#030712">
+  <meta name="description" content="Ônibus 1972 - Jogo narrativo recursivo com laços temporais, investigações e armadilhas noturnas na Serra da Lua.">
+  <title>Ônibus 1972 — Cockpit Narrativo Recursivo</title>
   
   <!-- Fonts Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="cockpit-theme">
   <!-- Dynamic Background Particles Canvas -->
   <canvas id="bgCanvas"></canvas>
 
-  <div class="game-shell">
-    <!-- 1. TOP NAV BAR -->
-    <header class="topbar">
-      <a class="brand-link" href="../../index.html" aria-label="Voltar para Narrativas Digitais Interativas">
-        <div class="bus-icon-badge" aria-hidden="true">
-          <span>1972</span>
-        </div>
-        <div class="brand-info">
-          <strong>NARRATIVAS DIGITAIS</strong>
-          <small>← Voltar ao Catálogo</small>
-        </div>
-      </a>
-
-      <div class="title-center">
-        <h1 class="game-title">ÔNIBUS 1972</h1>
-        <span class="sub-badge">NARRATIVA RECURSIVA &middot; LAÇO TEMPORAL</span>
+  <div class="cockpit-wrapper">
+    <!-- 1. TOP GLOWING NAVBAR -->
+    <header class="topbar-cockpit">
+      <div class="topbar-left">
+        <a class="brand-link" href="../../index.html" aria-label="Voltar para Narrativas Digitais Interativas">
+          <div class="bus-badge-neon">
+            <span>1972</span>
+          </div>
+          <div class="brand-info">
+            <strong>NARRATIVAS DIGITAIS</strong>
+            <small>← Voltar ao Catálogo</small>
+          </div>
+        </a>
       </div>
 
-      <div class="top-actions">
-        <button id="btnSound" class="icon-btn" title="Alternar Efeitos Sonoros" aria-label="Alternar Som">
-          <span id="soundIcon">🔊</span>
+      <div class="topbar-center">
+        <h1 class="game-hero-title">ÔNIBUS 1972</h1>
+        <span class="sub-badge-neon">LAÇO TEMPORAL &middot; NARRATIVA RECURSIVA</span>
+      </div>
+
+      <div class="topbar-right">
+        <button id="btnSound" class="cockpit-btn sound-btn" title="Alternar Efeitos Sonoros" aria-label="Alternar Som">
+          <span id="soundIcon">🔊</span> <span class="btn-label">ÁUDIO</span>
         </button>
-        <button id="btnGraphToggle" class="btn-secondary" title="Ver Grafo Recursivo">
-          <span class="btn-icon">🕸️</span> Mapa de Nós
+        <button id="btnGraphToggle" class="cockpit-btn glow-cyan" title="Ver Grafo Recursivo">
+          <span class="btn-icon">🕸️</span> <span class="btn-label">MAPA DE NÓS</span>
         </button>
-        <button id="btnNotebookToggle" class="btn-secondary" title="Ver Diário de Evidências">
-          <span class="btn-icon">📁</span> Pistas (<span id="clueCount">0</span>)
+        <button id="btnNotebookToggle" class="cockpit-btn glow-gold" title="Ver Diário de Evidências">
+          <span class="btn-icon">📁</span> <span class="btn-label">PISTAS (<span id="clueCount">0</span>)</span>
         </button>
       </div>
     </header>
 
-    <!-- 2. STATUS & RECURSIVE DASHBOARD -->
-    <section class="dashboard-bar">
-      <div class="dash-item loop-widget">
-        <span class="dash-label">RECURSIVIDADE</span>
-        <strong id="loopDisplay" class="dash-val">Loop #1</strong>
-      </div>
-      
-      <div class="dash-item clock-widget">
-        <span class="dash-label">HORÁRIO DA GARAGEM</span>
-        <div class="digital-clock">
-          <span id="clockTime">00:00</span>
-          <small class="clock-ampm">AM</small>
-        </div>
+    <!-- 2. WIDESCREEN CINEMATIC THEATER STAGE -->
+    <section class="theater-stage" id="sceneCard">
+      <div class="theater-overlay-top">
+        <div class="location-tag-neon" id="locationBadge">📍 Garagem Municipal - Setor Norte</div>
+        <div class="camera-tag-red" id="cameraBadge">REC &bull; CAM 04</div>
       </div>
 
-      <div class="dash-item progress-widget">
-        <div class="dash-header-small">
-          <span class="dash-label">INVESTIGAÇÃO</span>
-          <span id="progressPercent" class="dash-sub">0% Esclarecido</span>
-        </div>
-        <div class="progress-track">
-          <div id="progressBar" class="progress-fill" style="width: 0%;"></div>
-        </div>
+      <!-- Dynamic Illustration & Generated Real Images Container -->
+      <div class="theater-viewport" id="sceneIllustration">
+        <!-- Rendered dynamically by game.js -->
       </div>
 
-      <div class="dash-item endings-widget">
-        <span class="dash-label">FINAIS DESBLOQUEADOS</span>
-        <strong id="endingsDisplay" class="dash-val">0 / 5</strong>
+      <div class="theater-overlay-bottom">
+        <div class="avatars-deck" id="activeAvatars">
+          <!-- Avatars injected dynamically -->
+        </div>
+        <div class="clock-badge-cyan" id="sceneTimeBadge">🕒 00:00 AM</div>
       </div>
     </section>
 
-    <!-- 3. MAIN GAME CONTENT -->
-    <main class="main-narrative" id="mainNarrative">
-      <div class="narrative-grid">
-        <!-- Visual Scene Card -->
-        <div class="scene-column">
-          <div class="scene-card" id="sceneCard">
-            <div class="scene-overlay-top">
-              <span id="locationBadge" class="location-badge">📍 Garagem Municipal - Setor Norte</span>
-              <span id="cameraBadge" class="camera-badge">REC &bull; CAM 04</span>
-            </div>
-
-            <!-- Dynamic Graphic Illustration -->
-            <div class="scene-illustration" id="sceneIllustration">
-              <!-- Rendered dynamically by game.js SVG visualizer -->
-            </div>
-
-            <div class="scene-overlay-bottom">
-              <div class="character-avatars" id="activeAvatars">
-                <!-- Avatars appended dynamically -->
-              </div>
-              <span id="sceneTimeBadge" class="time-badge">🕒 00:02 AM</span>
-            </div>
-          </div>
-
-          <!-- Quick Inventory Strip -->
-          <div class="quick-inventory" id="quickInventory">
-            <span class="quick-inv-label">Evidências Conservadas:</span>
-            <div class="quick-inv-tags" id="quickInvTags">
-              <em class="empty-inv-msg">Nenhuma pista coletada neste loop ainda.</em>
-            </div>
-          </div>
-        </div>
-
-        <!-- Story Sheet & Decision Panel -->
-        <div class="story-column">
-          <article class="story-sheet">
-            <div class="story-header">
-              <span id="chapterBadge" class="chapter-badge">PRÓLOGO</span>
-              <h2 id="nodeTitle" class="node-title">O Alerta das 00:00</h2>
-            </div>
-
-            <div id="nodeText" class="story-body">
-              <!-- Story content injected here -->
-            </div>
-
-            <div id="loopFeedback" class="loop-feedback-banner hidden">
-              <div class="loop-icon">🌀</div>
-              <div class="loop-msg">
-                <strong>O Tempo Retrocedeu!</strong>
-                <p>Você voltou para as 00:00, mas manteve todas as pistas e itens descobertos no diário de bordo!</p>
-              </div>
-            </div>
-
-            <div class="choices-container">
-              <div class="choices-header">
-                <h3>QUAL É O PRÓXIMO PASSO?</h3>
-                <small>Escolha com base nas evidências disponíveis</small>
-              </div>
-              <div id="choicesList" class="choices-list">
-                <!-- Choice buttons injected here -->
-              </div>
-            </div>
-          </article>
+    <!-- 3. DASHBOARD INSTRUMENT PANEL (4 GAUGES) -->
+    <section class="instrument-panel">
+      <div class="gauge-card loop-gauge">
+        <div class="gauge-icon">🌀</div>
+        <div class="gauge-details">
+          <span class="gauge-title">RECURSIVIDADE</span>
+          <strong id="loopDisplay" class="gauge-value">Loop #1</strong>
         </div>
       </div>
+
+      <div class="gauge-card clock-gauge">
+        <div class="gauge-icon">⏱️</div>
+        <div class="gauge-details">
+          <span class="gauge-title">HORÁRIO DA GARAGEM</span>
+          <div class="digital-clock">
+            <span id="clockTime">00:00</span> <small>AM</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="gauge-card progress-gauge">
+        <div class="gauge-header">
+          <span class="gauge-title">ESCLARECIMENTO</span>
+          <span id="progressPercent" class="gauge-percent">0%</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div id="progressBar" class="progress-bar-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <div class="gauge-card endings-gauge">
+        <div class="gauge-icon">🏆</div>
+        <div class="gauge-details">
+          <span class="gauge-title">FINAIS DESBLOQUEADOS</span>
+          <strong id="endingsDisplay" class="gauge-value">0 / 5</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. TWO-COLUMN COMMAND CENTER (STORY + CHOICES) -->
+    <main class="command-center" id="mainNarrative">
+      <!-- STORY BOOK CARD -->
+      <article class="story-deck">
+        <div class="deck-header">
+          <span id="chapterBadge" class="chapter-tag">PRÓLOGO</span>
+          <h2 id="nodeTitle" class="node-title-main">O Alerta das 00:00</h2>
+        </div>
+
+        <div id="nodeText" class="story-content-body">
+          <!-- Story paragraphs injected dynamically -->
+        </div>
+
+        <div id="loopFeedback" class="loop-banner-pulse hidden">
+          <div class="loop-banner-icon">🔄</div>
+          <div class="loop-banner-text">
+            <strong>O TEMPO RETROCEDEU PARA 00:00!</strong>
+            <p>Suas pistas, evidências e conhecimentos da rodada anterior permanecem salvos no diário!</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- COMMAND DECK (CHOICES & QUICK INVENTORY) -->
+      <aside class="action-deck">
+        <div class="action-card-header">
+          <h3>⚡ COMANDOS TÁTICOS</h3>
+          <small>Selecione uma ação [1, 2, 3...]</small>
+        </div>
+
+        <div id="choicesList" class="choices-deck-list">
+          <!-- Choice buttons injected dynamically -->
+        </div>
+
+        <!-- Quick Inventory Strip -->
+        <div class="inventory-quick-panel">
+          <div class="inv-header">
+            <span>EVIDÊNCIAS CONSERVADAS NO LOOP</span>
+          </div>
+          <div class="inv-chips-container" id="quickInvTags">
+            <em class="empty-inv-msg">Nenhuma pista coletada neste loop ainda.</em>
+          </div>
+        </div>
+      </aside>
     </main>
 
-    <!-- 4. MODAL: MAPA DE NÓS (GRAFO RECURSIVO) -->
+    <!-- 5. MODAL: MAPA DE NÓS (GRAFO RECURSIVO) -->
     <div id="graphModal" class="modal-backdrop">
       <div class="modal-card wide-modal">
         <div class="modal-header">
@@ -166,7 +174,7 @@
       </div>
     </div>
 
-    <!-- 5. MODAL: DIÁRIO DE EVIDÊNCIAS & FINAIS -->
+    <!-- 6. MODAL: DIÁRIO DE EVIDÊNCIAS & FINAIS -->
     <div id="notebookModal" class="modal-backdrop">
       <div class="modal-card">
         <div class="modal-header">
@@ -198,9 +206,9 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="game-footer">
+    <footer class="cockpit-footer">
       <p>
-        <strong>Ônibus 1972</strong> &bull; Projeto de Narrativa Digital Interativa Recursiva &bull; 
+        <strong>Ônibus 1972</strong> &bull; Jogo Narrativo Recursivo &bull; 
         <a href="../../index.html">Oficina de Jogos Narrativos</a>
       </p>
       <button id="btnResetProgress" class="btn-text-danger">Resetar Todo o Progresso</button>
