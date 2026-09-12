@@ -743,88 +743,52 @@ class GameEngine {
     });
   }
 
-  // Dynamic Graphic Illustration Renderer (SVG)
+  // Dynamic Graphic Illustration & Image Scene Renderer
   renderSceneSVG(node) {
     const container = document.getElementById("sceneIllustration");
-    let svgContent = "";
+    let imageSrc = "assets/images/capa-onibus-1972.png";
+    let sceneLabel = "CAM 04 &bull; GARAGEM NOTURNA";
 
-    if (node.id.includes("chico_stealth") || node.id === "node01") {
-      // Night bus garage with headlights & flashlight beam
-      svgContent = `
-        <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#020617"/>
-              <stop offset="100%" stop-color="#0f172a"/>
-            </linearGradient>
-            <radialGradient id="lightBeam" cx="20%" cy="80%" r="70%">
-              <stop offset="0%" stop-color="rgba(251, 191, 36, 0.4)"/>
-              <stop offset="100%" stop-color="transparent"/>
-            </radialGradient>
-          </defs>
-          <rect width="600" height="450" fill="url(#skyGrad)"/>
-          <!-- Moon -->
-          <circle cx="500" cy="70" r="35" fill="#e2e8f0" opacity="0.8"/>
-          <!-- Bus 1972 Silhouette -->
-          <path d="M 120 200 Q 140 180 180 180 L 480 180 Q 520 180 530 220 L 530 360 L 120 360 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
-          <!-- Bus Windows -->
-          <rect x="150" y="210" width="70" height="45" fill="#38bdf8" opacity="0.3" rx="4"/>
-          <rect x="235" y="210" width="70" height="45" fill="#38bdf8" opacity="0.3" rx="4"/>
-          <rect x="320" y="210" width="70" height="45" fill="#38bdf8" opacity="0.3" rx="4"/>
-          <rect x="405" y="210" width="70" height="45" fill="#38bdf8" opacity="0.3" rx="4"/>
-          <!-- 1972 Text on Bus -->
-          <text x="280" y="310" fill="#fbbf24" font-family="Cinzel" font-size="28" font-weight="900">ÔNIBUS 1972</text>
-          <!-- Wheels -->
-          <circle cx="200" cy="360" r="30" fill="#090d16" stroke="#475569" stroke-width="4"/>
-          <circle cx="450" cy="360" r="30" fill="#090d16" stroke="#475569" stroke-width="4"/>
-          <!-- Light Cone -->
-          <polygon points="50,400 350,220 380,300" fill="url(#lightBeam)"/>
-          <!-- Flashlight Icon -->
-          <circle cx="60" cy="400" r="8" fill="#fbbf24"/>
-        </svg>
-      `;
-    } else if (node.id.includes("banco19") || node.id.includes("plano_mestre")) {
-      // Secret compartment & vintage map
-      svgContent = `
-        <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
-          <rect width="600" height="450" fill="#0f172a"/>
-          <!-- Seat Frame -->
-          <rect x="100" y="80" width="400" height="280" rx="16" fill="#1e293b" stroke="#fbbf24" stroke-width="3"/>
-          <text x="140" y="130" fill="#fbbf24" font-family="Outfit" font-size="22" font-weight="700">BANCO 19 — COMPARTIMENTO SECRETO</text>
-          <!-- Map Parchment -->
-          <rect x="160" y="160" width="280" height="160" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
-          <path d="M 180 200 Q 240 180 300 240 T 420 220" fill="none" stroke="#b45309" stroke-width="3" stroke-dasharray="6,4"/>
-          <circle cx="420" cy="220" r="10" fill="#ef4444"/>
-          <text x="360" y="250" fill="#991b1b" font-family="Cinzel" font-size="14" font-weight="700">Serra da Lua</text>
-        </svg>
-      `;
-    } else if (node.id.includes("amelia") || node.id.includes("confronto") || node.id.includes("ending1")) {
-      // Tree net trap under moonlight
-      svgContent = `
-        <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
-          <rect width="600" height="450" fill="#020617"/>
-          <!-- Tree Trunk -->
-          <path d="M 400 450 L 440 200 L 520 100 Q 420 80 350 150 Z" fill="#1e293b"/>
-          <!-- Net Matrix -->
-          <path d="M 150 120 L 350 120 L 320 280 L 180 280 Z" fill="none" stroke="#2dd4bf" stroke-width="2" stroke-dasharray="10,6"/>
-          <!-- Pitfall Trap -->
-          <ellipse cx="250" cy="380" rx="120" ry="30" fill="#0f172a" stroke="#fbbf24" stroke-width="3"/>
-          <text x="180" y="385" fill="#38bdf8" font-family="Outfit" font-size="14">ARMADILHA DO BURACO</text>
-        </svg>
-      `;
-    } else {
-      // Default Nocturnal Bus Visual
-      svgContent = `
-        <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
-          <rect width="600" height="450" fill="#090d16"/>
-          <circle cx="300" cy="225" r="140" fill="#0f172a" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4,4"/>
-          <text x="300" y="220" text-anchor="middle" fill="#fbbf24" font-family="Cinzel" font-size="28" font-weight="900">ÔNIBUS 1972</text>
-          <text x="300" y="250" text-anchor="middle" fill="#94a3b8" font-family="Outfit" font-size="14">GARAGEM DA SERRA DA LUA</text>
-        </svg>
-      `;
+    if (node.id.includes("banco19") || node.id.includes("plano_mestre") || node.id.includes("ending5")) {
+      imageSrc = "assets/images/banco-secreto.png";
+      sceneLabel = "CAM 05 &bull; COMPARTIMENTO DO BANCO 19";
+    } else if (node.id.includes("amelia") || node.id.includes("confronto") || node.id.includes("ending1") || node.id.includes("ending3")) {
+      imageSrc = "assets/images/armadilha-figueira.png";
+      sceneLabel = "CAM 06 &bull; FIGUEIRA CENTENÁRIA";
     }
 
-    container.innerHTML = svgContent;
+    container.innerHTML = `
+      <div class="scene-img-wrapper" style="position: relative; width: 100%; height: 100%; overflow: hidden;">
+        <img src="${imageSrc}" alt="${node.title}" class="scene-real-img" style="
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: brightness(0.9) contrast(1.1);
+          animation: subtleZoom 12s ease-in-out infinite alternate;
+          transition: opacity 0.5s ease-in-out;
+        " />
+        <div class="scene-vignette" style="
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          background: radial-gradient(circle at center, transparent 40%, rgba(4, 8, 18, 0.85) 100%),
+                      linear-gradient(180deg, rgba(8, 13, 26, 0.4) 0%, transparent 30%, rgba(8, 13, 26, 0.8) 100%);
+          pointer-events: none;
+        "></div>
+        <div class="scene-scanlines" style="
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 3px);
+          pointer-events: none;
+          opacity: 0.7;
+        "></div>
+        <div class="hud-corner-tl" style="position: absolute; top: 12px; left: 12px; font-family: var(--font-mono); font-size: 0.65rem; color: var(--cyan-accent); letter-spacing: 0.1em;">
+          SYS.1972 // ONLINE
+        </div>
+        <div class="hud-corner-br" style="position: absolute; bottom: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; color: var(--gold-primary); letter-spacing: 0.1em;">
+          ${sceneLabel}
+        </div>
+      </div>
+    `;
   }
 
   // Render Clues & Endings Modal
