@@ -694,7 +694,10 @@ class GameEngine {
     const tabEndCnt = document.getElementById("tabEndingCount");
     if (tabEndCnt) tabEndCnt.textContent = `${unlockedCount}/7`;
 
-    const progressPct = Math.round((this.state.visitedNodes.size / Object.keys(NODES).length) * 100);
+    const totalExplorable = Math.max(1, Object.keys(NODES).length - 1);
+    const visitedExplored = Math.max(0, this.state.visitedNodes.size - 1);
+    const progressPct = Math.min(100, Math.round((visitedExplored / totalExplorable) * 100));
+
     const pBar = document.getElementById("progressBar");
     if (pBar) pBar.style.width = `${progressPct}%`;
 
@@ -757,25 +760,28 @@ class GameEngine {
       }
     }
 
-    // Choices
+    // Choices: render strictly options that are unlocked or available
     const choicesList = document.getElementById("choicesList");
     if (choicesList) {
       choicesList.innerHTML = "";
 
-      (node.choices || []).forEach((c, idx) => {
+      const availableChoices = (node.choices || []).filter(c => {
+        if (c.reqClue && !this.state.clues.has(c.reqClue)) {
+          return false; // Oculta opções avançadas até a pista necessária ser desbloqueada
+        }
+        return true;
+      });
+
+      availableChoices.forEach((c, idx) => {
         const btn = document.createElement("button");
         btn.className = "choice-btn";
         
-        let isReqMet = true;
         let reqTagHtml = "";
         if (c.reqClue) {
-          isReqMet = this.state.clues.has(c.reqClue);
           const reqClueObj = CLUES[c.reqClue];
-          reqTagHtml = `<span class="choice-req-tag">${isReqMet ? '✔ Exige: ' : '🔒 Requer: '} ${reqClueObj ? reqClueObj.title : 'Pista'}</span>`;
-          if (isReqMet) btn.classList.add("has-req");
+          reqTagHtml = `<span class="choice-req-tag">✔ Prova Utilizada: ${reqClueObj ? reqClueObj.title : 'Pista'}</span>`;
+          btn.classList.add("has-req");
         }
-
-        if (!isReqMet) btn.disabled = true;
 
         btn.innerHTML = `
           <span class="choice-key">[${idx + 1}]</span>
