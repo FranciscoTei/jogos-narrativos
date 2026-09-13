@@ -112,23 +112,23 @@ const NODES = {
     `,
     choices: [
       {
-        text: "💼 [1] Investigar a área do bagageiro com Edilias e escutar Frederico.",
+        text: "💼 Investigar a área do bagageiro com Edilias e escutar Frederico.",
         target: "node_trama1"
       },
       {
-        text: "📼 [2] Ir à Sala de Rádio e Câmeras CRT falar com o estudante Peter.",
+        text: "📼 Ir à Sala de Rádio e Câmeras CRT falar com o estudante Peter.",
         target: "node_trama2"
       },
       {
-        text: "📻 [3] Interrogar os passageiros no salão do ônibus (Janeto, Louise e Brinidite).",
+        text: "📻 Interrogar os passageiros no salão do ônibus (Janeto, Louise e Brinidite).",
         target: "node_trama3"
       },
       {
-        text: "🌲 [4] Conversar com a moradora Valdinete e examinar o perímetro da figueira.",
+        text: "🌲 Conversar com a moradora Valdinete e examinar o perímetro da figueira.",
         target: "node_trama4"
       },
       {
-        text: "⚖️ [5] [EXPEDIR MANDADO HUMANO] Unir as provas e resolver o caso com justiça e compaixão!",
+        text: "⚖️ [EXPEDIR MANDADO HUMANO] Unir as provas e resolver o caso com justiça e compaixão!",
         target: "node_expedir_mandado",
         reqClue: "video_restaurado_peter"
       }
