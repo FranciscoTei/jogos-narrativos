@@ -1,0 +1,26 @@
+VALIDAÇÃO TÉCNICA DA VERSÃO REVISADA E APERFEIÇOADA
+
+- Arquitetura modular limpa e organizada para facilidade de manutenção:
+  1. js/audio.js: Motor de áudio Web Audio API e controle da trilha sonora.
+  2. js/story.js: Catálogo de pistas, regras de suspeitos, conexões e recursos.
+  3. js/game.js: Motor de jogo, gerenciador de estado, salvamento e controladores UI.
+- 100% offline: sem qualquer dependência externa, compiladores ou conexão de internet.
+- Todas as rotas chamadas pelo JavaScript possuem destino definido.
+- Exatamente 3 finais implementados:
+  1. Final bom incompleto
+  2. Final ruim
+  3. Final 100% bom
+- O final 100% exige quatro categorias narrativas de evidência, e não uma quantidade arbitrária de pistas.
+- O painel lateral lista suspeitos, fatos descobertos e Conexões Deduzidas, sem declarar culpado ou inocente.
+- A investigação é recursiva: o jogador pode voltar aos corredores, re-visitar locais com novos textos dinâmicos e identificar novidades por selos visuais.
+- Liberação progressiva de suspeitos conforme o avanço da investigação.
+- Layout de tela cheia encaixado (viewport fit) sem rolagem externa da página.
+- Salvamento automático em localStorage com opção "Continuar investigação" na tela inicial.
+- Efeitos sonoros offline via Web Audio API e notificações flutuantes (Toasts) ao registrar pistas.
+- A passagem secreta exige localização + mecanismo + chave.
+- Interface modernizada com estilo Glassmorphism, transições de cena suaves e atalhos de teclado (1-9, M, R).
+- Barra inferior de créditos presente na interface inteira.
+
+Para jogar: extraia o ZIP e abra index.html.
+
+

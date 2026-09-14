@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Segredo de Blackwood</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="start-screen" class="start-screen">
+    <div class="start-overlay">
+      <button id="start-btn" class="start-btn">INICIAR A INVESTIGAÇÃO</button>
+    </div>
+  </div>
+
+  <div id="app">
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="eyebrow">BLACKWOOD</div>
+        <h1>O Segredo de Blackwood</h1>
+        <div class="project-labels">
+          <span>NARRATIVA INTERATIVA</span>
+          <span>RECURSIVIDADE</span>
+          <span>PROJETO ESCOLAR</span>
+          <span>ATIVIDADE DESENVOLVIDA COM APOIO DE INTELIGÊNCIA ARTIFICIAL</span>
+        </div>
+      </div>
+      <div class="clock-panel">
+        <span>HORA</span>
+        <strong id="game-clock">23:47</strong>
+      </div>
+      <div class="accessibility-controls" aria-label="Controles de acessibilidade">
+        <button id="font-decrease" type="button" aria-label="Diminuir fonte">A−</button>
+        <button id="font-increase" type="button" aria-label="Aumentar fonte">A+</button>
+        <button id="narration-btn" type="button" aria-label="Ouvir ou parar narração">▶ Narração</button>
+        <button id="music-btn" type="button" aria-label="Ativar ou desativar música">♫ Música</button>
+      </div>
+    </header>
+
+    <main class="game-layout">
+      <aside class="sidebar">
+        <section>
+          <h2>INVESTIGAÇÃO</h2>
+          <div id="case-status" class="case-status">Caso aberto</div>
+        </section>
+        <section>
+          <h2>PISTAS</h2>
+          <ul id="clues-list"></ul>
+        </section>
+        <section>
+          <h2>PESSOAS</h2>
+          <ul id="people-list"></ul>
+        </section>
+      </aside>
+
+      <section class="stage">
+        <div id="scene-image" class="scene-image" aria-label="Imagem da cena"></div>
+        <article class="scene-card">
+          <div id="scene-kicker" class="scene-kicker"></div>
+          <h2 id="scene-title"></h2>
+          <div id="scene-text" class="scene-text"></div>
+          <div id="choices" class="choices"></div>
+          <div id="continue-area" class="continue-area"></div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="project-footer">
+      <div class="project-identification">
+        <div class="project-main">NARRATIVA INTERATIVA</div>
+        <div class="project-tags">
+          <span>RECURSIVIDADE</span>
+          <span>PROJETO ESCOLAR</span>
+        </div>
+        <div class="project-support">
+          ATIVIDADE DESENVOLVIDA COM APOIO DE INTELIGÊNCIA ARTIFICIAL
+        </div>
+      </div>
+
+      <div class="creators">
+        <div class="creators-title">CRIADORES</div>
+        <div class="creator-names">ANA BEATRIZ &nbsp;•&nbsp; FRANCISCO RENATO &nbsp;•&nbsp; JOÃO CARLOS &nbsp;•&nbsp; JOSÉ FILHO &nbsp;•&nbsp; LAURA CARDOSO</div>
+        <div class="orientation">ORIENTAÇÃO: <strong>PROF° GEOVANE GALDINO</strong></div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>Uma investigação em Blackwood</span>
+        <button id="restart-btn" class="restart-btn">Reiniciar investigação</button>
+      </div>
+
+      <div class="bug-notice">
+        CASO ENCONTRE INCONSISTÊNCIAS, ERROS, OU BUGS DE PROGRAMAÇÃO, POR FAVOR AVISAR.
+      </div>
+    </footer>
+  </div>
+
+  <div id="blackout" class="blackout hidden">
+    <div class="blackout-content">
+      <div class="midnight">00h00</div>
+      <div id="blackout-message"></div>
+      <button id="blackout-btn" class="primary-btn">Continuar</button>
+    </div>
+  </div>
+
+  <audio id="ambient-audio" preload="auto" loop>
+    <source src="./assets/audio/blackwood_ambience.mp3" type="audio/mpeg">
+    <source src="./assets/audio/blackwood_ambience.wav" type="audio/wav">
+  </audio>
+  <script src="js/game.js"></script>
+</body>
+</html>

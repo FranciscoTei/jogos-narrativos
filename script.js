@@ -28,7 +28,9 @@ const gamesData = [
     genre: "Mistério",
     icon: "♜",
     overlayText: "ALGUMAS ESTÁTUAS TAMBÉM FALAM.",
-    available: false
+    image: "assets/game3.png",
+    folder: "jogos/a-estatua-que-sussurrava/index.html",
+    available: true
   },
   {
     code: "04",
@@ -37,7 +39,9 @@ const gamesData = [
     genre: "Suspense",
     icon: "♞",
     overlayText: "BLACKWOOD GUARDA UM SEGREDO.",
-    available: false
+    image: "jogos/o-segredo-de-Blackwood/O_Segredo_de_Blackwood/assets/images/capa-desktop.png",
+    folder: "jogos/o-segredo-de-Blackwood/O_Segredo_de_Blackwood/index.html",
+    available: true
   },
   {
     code: "05",
@@ -46,7 +50,9 @@ const gamesData = [
     genre: "Aventura",
     icon: "●",
     overlayText: "MAIS QUE UM JOGO. UM SEGREDO.",
-    available: false
+    image: "assets/game5.png",
+    folder: "jogos/o-misterio-da-bola-de-ouro/index.html",
+    available: true
   },
   {
     code: "06",
@@ -55,7 +61,7 @@ const gamesData = [
     genre: "Suspense",
     icon: "👥",
     overlayText: "TRÊS PESSOAS. UMA CASA. MUITAS VERDADES.",
-    image: "assets/game4.png",
+    image: "jogos/a-casa-das-tres/capa-desktop-16x9.png",
     folder: "jogos/a-casa-das-tres/index.html",
     available: true
   },
