@@ -134,9 +134,7 @@ const gamesData = [
     genre: "Narrativa Recursiva",
     icon: "🚌",
     overlayText: "O RELÓGIO MARCA 00:00. O PLANO COMEÇA AGORA.",
-    image: "jogos/onibus-1972/assets/images/capa-onibus-1972.png",
-    folder: "jogos/onibus-1972/index.html",
-    available: true
+    available: false
   }
 ];
 
