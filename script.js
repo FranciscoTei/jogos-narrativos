@@ -63,9 +63,7 @@ const gamesData = [
     genre: "Suspense",
     icon: "👥",
     overlayText: "TRÊS PESSOAS. UMA CASA. MUITAS VERDADES.",
-    image: "jogos/a-casa-das-tres/capa-desktop-16x9.png",
-    folder: "jogos/a-casa-das-tres/index.html",
-    available: true
+    available: false
   },
   {
     code: "07",
