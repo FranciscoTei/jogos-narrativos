@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111827" />
+  <title>O Mistério da Escola</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <div id="app" class="app-shell">
+    <section id="cover" class="cover-screen" aria-label="Capa do jogo">
+      <img src="assets/images/capa.png" alt="Capa de O Mistério da Escola" class="cover-image" />
+      <div class="cover-overlay"></div>
+      <div class="cover-content">
+        <p class="eyebrow">Narrativa Recursiva • Projeto Escolar</p>
+        <h1>O Mistério da Escola</h1>
+        <p>Nem tudo é o que parece. A verdade precisa ser construída pelas pistas.</p>
+        <div class="cover-buttons">
+          <button id="startGame" class="primary-btn" type="button">▶ Iniciar nova investigação</button>
+          <button id="resumeGame" class="primary-btn secondary-cover-btn hidden" type="button">📂 Continuar investigação</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="game" class="game hidden">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Escola Mundial • 2023</p>
+          <h1>O Mistério da Escola</h1>
+        </div>
+        <div class="top-actions">
+          <button id="audioBtn" class="icon-btn" type="button" aria-label="Ativar ou pausar música">♫ Música</button>
+          <button id="restartBtn" class="icon-btn" type="button">↻ Reiniciar</button>
+        </div>
+      </header>
+
+      <section class="status-strip" aria-label="Progresso da investigação">
+        <div class="status-item"><strong id="clueCount">0</strong><span>Pistas</span></div>
+        <div class="status-item"><strong id="visitedCount">0</strong><span>Locais</span></div>
+        <div class="status-item"><strong id="evidenceCount">0/4</strong><span>Provas</span></div>
+        <div class="status-item wide"><strong id="caseStatus">Investigação iniciada</strong><span>Estado do caso</span></div>
+      </section>
+
+      <main class="game-layout">
+        <section class="scene-card">
+          <div class="scene-media">
+            <img id="sceneImage" src="assets/images/sala_aula.png" alt="Cenário atual" />
+            <div class="scene-location" id="sceneLocation">Sala de aula</div>
+          </div>
+          <div class="scene-content">
+            <p class="chapter" id="sceneChapter">Capítulo 1</p>
+            <h2 id="sceneTitle">O desaparecimento de Helena</h2>
+            <div id="sceneText" class="scene-text"></div>
+            <div id="choices" class="choices" aria-label="Escolhas"></div>
+          </div>
+        </section>
+
+        <aside class="dossier" aria-label="Dossiê da investigação">
+          <div class="dossier-tabs" role="tablist" aria-label="Dossiê">
+            <button type="button" class="tab-btn active" data-tab="suspects" role="tab" aria-selected="true">Suspeitos</button>
+            <button type="button" class="tab-btn" data-tab="clues" role="tab" aria-selected="false">Pistas</button>
+            <button type="button" class="tab-btn" data-tab="evidence" role="tab" aria-selected="false">Provas</button>
+            <button type="button" class="tab-btn" data-tab="connections" role="tab" aria-selected="false">Conexões</button>
+          </div>
+          <div id="suspectsPanel" class="tab-panel active" role="tabpanel"></div>
+          <div id="cluesPanel" class="tab-panel" role="tabpanel"></div>
+          <div id="evidencePanel" class="tab-panel" role="tabpanel"></div>
+          <div id="connectionsPanel" class="tab-panel" role="tabpanel"></div>
+        </aside>
+      </main>
+    </div>
+
+    <footer class="credits-bar">
+      <strong>Narrativa Recursiva</strong><span>•</span><strong>Projeto Escolar</strong><span>•</span>
+      <span>Criadores: Anne Mirelly, Emanuelle Queiroz, Evilyn Eduarda, Maria Felícia.</span><span>•</span>
+      <span>Orientador: Professor Francisco Teixeira.</span><span>•</span>
+      <span>Atividade desenvolvida com apoio de Inteligência Artificial.</span>
+    </footer>
+  </div>
+
+  <audio id="bgm" src="assets/audio/trilha_suspense.wav" loop preload="auto"></audio>
+  <script src="js/audio.js"></script>
+  <script src="js/story.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

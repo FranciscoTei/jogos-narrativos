@@ -8,7 +8,9 @@ const gamesData = [
     genre: "Mistério escolar",
     icon: "◎",
     overlayText: "UMA ESCOLA. MUITOS SEGREDOS.",
-    available: false
+    image: "jogos/o-misterio-da-escola-mundial/assets/images/capa.png",
+    folder: "jogos/o-misterio-da-escola-mundial/index.html",
+    available: true
   },
   {
     code: "02",
@@ -81,7 +83,9 @@ const gamesData = [
     genre: "Mistério",
     icon: "⌂",
     overlayText: "NINGUÉM É EXATAMENTE O QUE PARECE.",
-    available: false
+    image: "jogos/a-casa-onde-ninguem-e-o-que-parece/capa-desktop-16x9.png",
+    folder: "jogos/a-casa-onde-ninguem-e-o-que-parece/index.html",
+    available: true
   },
   {
     code: "09",
@@ -126,15 +130,6 @@ const gamesData = [
     image: "jogos/O-misterio-das-1545/assets/images/museu-1545.png",
     folder: "jogos/O-misterio-das-1545/index.html",
     available: true
-  },
-  {
-    code: "13",
-    id: "onibus-1972",
-    title: "Ônibus 1972",
-    genre: "Narrativa Recursiva",
-    icon: "🚌",
-    overlayText: "O RELÓGIO MARCA 00:00. O PLANO COMEÇA AGORA.",
-    available: false
   }
 ];
 
